@@ -22,6 +22,8 @@ namespace Persistence.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        //Projects
+        public DbSet<Project_Ideh> P_Idehs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

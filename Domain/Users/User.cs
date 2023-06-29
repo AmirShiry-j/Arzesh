@@ -1,4 +1,5 @@
 ﻿using Domain.Common;
+using Domain.Project;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Domain.Users
         public UserType UserType { get; set; }
         //Navs
         public ICollection<Token> Tokens { get; set; }
+        public ICollection<Project_Ideh> P_Idehs { get; set; }
         //
         public DateTime TimeCreate { get; set; }
     }
