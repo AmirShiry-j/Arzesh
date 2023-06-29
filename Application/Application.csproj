@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Project_IdehService\Query\" />
+  </ItemGroup>
+
 </Project>

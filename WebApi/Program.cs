@@ -1,9 +1,11 @@
 ﻿using Application.Interfaces.Contexts;
+using Application.Project_IdehService.Command;
 using Application.TokenService;
 using Application.UserService;
 using Domain.Users;
 using ExceptionHandling;
 using Infrastructure.EmailService;
+using Infrastructure.MappingProfile;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -152,6 +154,14 @@ builder.Services.AddAuthentication(options =>
 ////Services of DB
 //Db service
 builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
+
+
+//AuthoMapper Profile
+builder.Services.AddAutoMapper(typeof(Projects_MppingProfile));
+
+//Project_Ideh services
+builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();
+builder.Services.AddScoped<IDeleteProject_IdehService, DeleteProject_IdehService>();
 
 
 
