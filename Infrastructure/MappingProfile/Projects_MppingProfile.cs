@@ -1,5 +1,6 @@
 ﻿
 using Application.Project_IdehService.Command;
+using Application.Project_IdehService.Query;
 using AutoMapper;
 using Domain.Project;
 using System;
@@ -14,9 +15,12 @@ namespace Infrastructure.MappingProfile
     {
         public Projects_MppingProfile()
         {
-            CreateMap<Project_Ideh, Project_IdehDto>()
+            CreateMap<Project_Ideh, Project_IdehCreateDto>()
                 .ReverseMap();
-
+            CreateMap<Project_Ideh, Project_IdehDetailDto>()
+       .ReverseMap();
+            CreateMap<Project_Ideh, Project_IdehDto>()
+.ReverseMap();
         }
     }
 }

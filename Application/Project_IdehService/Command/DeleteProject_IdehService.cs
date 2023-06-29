@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace Application.Project_IdehService.Command
 {
-    public class DeleteProject_IdehService
+    public interface IDeleteProject_IdehService
+    {
+        Task<ResultDto> Execute(int ProjectId, string UserId);
+
+    }
+    public class DeleteProject_IdehService : IDeleteProject_IdehService
     {
         private readonly IDataBaseContext _dbContext;
         private readonly IMapper _mapper;
@@ -25,7 +30,7 @@ namespace Application.Project_IdehService.Command
             var project = _dbContext.P_Idehs.Find(ProjectId);
 
             //check is exist
-            if(project == null)
+            if (project == null)
             {
                 return new ResultDto
                 {

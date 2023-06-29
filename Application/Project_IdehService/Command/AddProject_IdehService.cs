@@ -14,7 +14,7 @@ namespace Application.Project_IdehService.Command
 {
     public interface IAddProject_IdehService
     {
-        Task<ResultDto<int>> Execute(Project_IdehDto IdehDto, string UserId);
+        Task<ResultDto<int>> Execute(Project_IdehCreateDto IdehDto, string UserId);
     }
     public class AddProject_IdehService : IAddProject_IdehService
     {
@@ -26,7 +26,7 @@ namespace Application.Project_IdehService.Command
             _dbContext = dbContext;
             _mapper = mapper;
         }
-        public async Task<ResultDto<int>> Execute(Project_IdehDto IdehDto, string UserId)
+        public async Task<ResultDto<int>> Execute(Project_IdehCreateDto IdehDto, string UserId)
         {
             //Map
             var newIdeh = _mapper.Map<Project_Ideh>(IdehDto);
@@ -43,7 +43,7 @@ namespace Application.Project_IdehService.Command
             };
         }
     }
-    public class Project_IdehDto
+    public class Project_IdehCreateDto
     {
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         public int PercentParticipation { get; set; }
