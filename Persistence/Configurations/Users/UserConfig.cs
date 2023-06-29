@@ -15,7 +15,14 @@ namespace Persistence.Configurations.Users
         public void Configure(EntityTypeBuilder<User> builder)
         {
 
-            builder.Property(p => p.FullName).IsRequired().HasMaxLength(50);
+            builder.Property(p => p.Email).IsRequired().HasMaxLength(50);
+            builder.Property(p => p.PhoneNumber).IsRequired().HasMaxLength(50);
+
+            builder.Property(p => p.Name).IsRequired().HasMaxLength(50);
+            builder.Property(p => p.Code).IsRequired().HasMaxLength(50);
+            builder.Property(p => p.UserType).IsRequired();
+
+            //
             builder.Property(p => p.TimeCreate).HasDefaultValueSql("getdate()");
         }
     }

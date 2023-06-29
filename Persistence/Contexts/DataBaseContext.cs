@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces.Contexts;
+using Domain.Project;
 using Domain.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,6 @@ namespace Persistence.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Token> Tokens { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

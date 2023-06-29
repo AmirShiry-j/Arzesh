@@ -23,8 +23,9 @@ namespace Application.UserService
             var users = _dataBase.Users.Select(p => new UserDto
             {
                 Id = p.Id,
-                FullName = p.FullName,
+                Name = p.Name,
                 Email = p.Email,
+                UserType = (int)p.UserType
             }).ToList();
 
             return users;
@@ -33,7 +34,8 @@ namespace Application.UserService
     public class UserDto
     {
         public string Id { get; set; }
-        public string FullName { get; set; }
+        public string Name { get; set; }
+        public int UserType { get; set; }
         public string Email { get; set; }
     }
 }

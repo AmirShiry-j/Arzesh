@@ -1,5 +1,7 @@
-﻿using Application.TokenService;
+﻿using Application.Interfaces.Contexts;
+using Application.TokenService;
 using Application.UserService;
+using Domain.Users;
 using ExceptionHandling;
 using Infrastructure.EmailService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -53,11 +55,11 @@ builder.Services.AddApiVersioning(option =>
 });
 
 //Config Identity and his option
-//builder.Services.AddIdentity<User, Role>()
-//    .AddEntityFrameworkStores<DataBaseContext>()
-//    .AddDefaultTokenProviders()
-//    .AddRoles<Role>()
-//    .AddErrorDescriber<PersianIdentityErrors>();
+builder.Services.AddIdentity<User, Role>()
+    .AddEntityFrameworkStores<DataBaseContext>()
+    .AddDefaultTokenProviders()
+    .AddRoles<Role>()
+    .AddErrorDescriber<PersianIdentityErrors>();
 
 //Set Identity's Options
 builder.Services.Configure<IdentityOptions>(options =>
@@ -89,7 +91,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Barber Shop", Version = "v1" });
 
     //برای نمایش Description کنترلر ها
-    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "WebApi.Barber.xml"), true);
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "WebApi.Arzesh.xml"), true);
 
     //For configure Authentication in swaager Ui
     var security = new OpenApiSecurityScheme
@@ -149,7 +151,7 @@ builder.Services.AddAuthentication(options =>
 
 ////Services of DB
 //Db service
-//builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
+builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 
 
 

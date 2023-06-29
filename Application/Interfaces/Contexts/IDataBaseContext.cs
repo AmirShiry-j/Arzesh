@@ -1,4 +1,5 @@
-﻿using Domain.Users;
+﻿using Domain.Project;
+using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace Application.Interfaces.Contexts
         DbSet<User> Users { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<Token> Tokens { get; set; }
+        //Projects
+        public DbSet<Project_Ideh> P_Idehs { get; set; }
 
         int SaveChanges();
     }

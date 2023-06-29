@@ -10,10 +10,17 @@ namespace Domain.Users
 {
     public class User : IdentityUser, BaseProps
     {
-        public string FullName { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public UserType UserType { get; set; }
         //Navs
         public ICollection<Token> Tokens { get; set; }
         //
         public DateTime TimeCreate { get; set; }
+    }
+    public enum UserType
+    {
+        Haghighi = 1,
+        Hoghooghi = 2
     }
 }
