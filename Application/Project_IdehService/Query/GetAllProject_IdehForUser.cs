@@ -40,6 +40,7 @@ namespace Application.Project_IdehService.Query
                                 .OrderByDescending(p => p.Id)
                 //For Pagination
                 .Skip((SearchDto.Page.Value - 1) * SearchDto.CountInPage.Value)
+                .Take(SearchDto.CountInPage.Value)
                 .ToList();
 
             //For Pagination
@@ -76,6 +77,7 @@ namespace Application.Project_IdehService.Query
     public class Project_IdehDto
     {
         public int Id { get; set; }
+        public Link Link { get; set; }
 
     }
 }

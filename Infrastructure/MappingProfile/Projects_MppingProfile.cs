@@ -15,7 +15,7 @@ namespace Infrastructure.MappingProfile
     {
         public Projects_MppingProfile()
         {
-            CreateMap<Project_Ideh, Project_IdehCreateDto>()
+            CreateMap<Project_Ideh, CreateProject_IdehDto>()
                 .ReverseMap();
             CreateMap<Project_Ideh, Project_IdehDetailDto>()
        .ReverseMap();

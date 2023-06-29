@@ -40,7 +40,7 @@ namespace Application.Project_IdehService.Command
             }
 
             //check is for user
-            if (project.UserId.Equals(UserId))
+            if (!project.UserId.Equals(UserId))
             {
                 return new ResultDto
                 {

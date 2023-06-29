@@ -67,5 +67,33 @@
             <param name="user"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.Project_IdehController.Get(WebApi.ModelsAndDtoes.Project_Ideh.SearchProject_IdehApiDto)">
+            <summary>
+            برگردوندن لیست پروژه ها (ایده)
+            </summary>
+            <param name="SearchDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.Project_IdehController.Get(System.Int32)">
+            <summary>
+            برگردوندن اطلاعات یک پروژه (ایده) با آیدی
+            </summary>
+            <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.Project_IdehController.Post(WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto)">
+            <summary>
+            ثبت یک پروژه (ایده)
+            </summary>
+            <param name="CreateProjectDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.Project_IdehController.Delete(System.Int32)">
+            <summary>
+            حذف یک پروژه (ایده)
+            </summary>
+            <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

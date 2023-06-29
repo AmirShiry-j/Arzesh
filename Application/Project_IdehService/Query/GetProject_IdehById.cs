@@ -43,7 +43,7 @@ namespace Application.Project_IdehService.Query
             }
 
             //check is for user
-            if (project.UserId.Equals(UserId))
+            if (!project.UserId.Equals(UserId))
             {
                 return new ResultDto<Project_IdehDetailDto>
                 {
@@ -77,6 +77,7 @@ namespace Application.Project_IdehService.Query
         public string WhatTopicsNeedParticipate { get; set; }
         public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
+        public List<Link> Links { get; set; }
 
     }
 }

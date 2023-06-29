@@ -17,6 +17,7 @@ using Persistence.Contexts;
 using System.Data;
 using System.Text;
 using WebApi.Helpers;
+using WebApi.Tools.AutoMapper;
 using WebApi.Tools.PersianError;
 using WebApi.Tools.TokenValidator;
 
@@ -159,6 +160,7 @@ builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 
 //AuthoMapper Profile
 builder.Services.AddAutoMapper(typeof(Projects_MppingProfile));
+builder.Services.AddAutoMapper(typeof(Projects_Mpping_EndPointProfile));
 
 //Project_Ideh services
 builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();
@@ -172,6 +174,7 @@ builder.Services.AddScoped<IUserAuthorizeService, UserAuthorizeService>();
 
 //Service email
 builder.Services.AddScoped<IEmailService, EmailService>();
+
 //Service Handler
 builder.Services.AddSingleton<HandlerOptions>();
 
