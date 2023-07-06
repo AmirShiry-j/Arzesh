@@ -1,6 +1,8 @@
 ﻿using Application.Interfaces.Contexts;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
+using Application.Project_IncompletedService.Command;
+using Application.Project_IncompletedService.Query;
 using Application.TokenService;
 using Application.UserService;
 using Domain.Users;
@@ -167,6 +169,13 @@ builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();
 builder.Services.AddScoped<IDeleteProject_IdehService, DeleteProject_IdehService>();
 builder.Services.AddScoped<IGetProject_IdehById, GetProject_IdehById>();
 builder.Services.AddScoped<IGetAllProject_IdehForUser, GetAllProject_IdehForUser>();
+
+//Project_Incompleted services
+builder.Services.AddScoped<IAddProject_IncompletedService, AddProject_IncompletedService>();
+builder.Services.AddScoped<IDeleteProject_IncompletedService, DeleteProject_IncompletedService>();
+builder.Services.AddScoped<IGetProject_IncompletedById, GetProject_IncompletedById>();
+builder.Services.AddScoped<IGetAllProject_IncompletedForUser, GetAllProject_IncompletedForUser>();
+
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();
