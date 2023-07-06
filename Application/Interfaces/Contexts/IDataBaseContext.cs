@@ -1,4 +1,5 @@
 ﻿using Domain.Project;
+using Domain.ProjectNeeds;
 using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,8 +17,21 @@ namespace Application.Interfaces.Contexts
         DbSet<Role> Roles { get; set; }
         DbSet<Token> Tokens { get; set; }
         //Projects
-        public DbSet<Project_Ideh> P_Idehs { get; set; }
+        DbSet<Project_Ideh> P_Idehs { get; set; }
+        DbSet<Project_Incompleted> P_Incompleteds { get; set; }
 
+        //Faciliti
+        DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
+        DbSet<FacilitiNature> FacilitiNatures { get; set; }
+        DbSet<FacilitiRelProject> FacilitiRelProjects { get; set; }
+        //Licence
+        DbSet<Licence> Licences { get; set; }
+        DbSet<LicenceRelProject> LicenceRelProjects { get; set; }
+        //Fund
+        DbSet<Fund> Funds { get; set; }
+        DbSet<FundRelProject> FundRelProjects { get; set; }
+        //Address
+        DbSet<Address> Addresses { get; set; }
         int SaveChanges();
     }
 }

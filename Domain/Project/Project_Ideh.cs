@@ -1,4 +1,5 @@
-﻿using Domain.Users;
+﻿using Domain.ProjectEnums;
+using Domain.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Domain.Project
         public int Id { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
+        //مشارکت
         //درصد مشارکت
         public int PercentParticipation { get; set; }
         //آیا ایده شما مورد مشابه داخلی دارد؟
@@ -39,9 +41,5 @@ namespace Domain.Project
         public User User { get; set; }
         public string UserId { get; set; }
     }
-    public enum AssignmentOrParticipation
-    {
-        Assignment = 1,
-        Participation = 2
-    }
+
 }

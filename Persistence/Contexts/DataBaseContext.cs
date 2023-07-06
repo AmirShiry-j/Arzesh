@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Contexts;
 using Domain.Project;
+using Domain.ProjectNeeds;
 using Domain.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,20 @@ namespace Persistence.Contexts
         public DbSet<Token> Tokens { get; set; }
         //Projects
         public DbSet<Project_Ideh> P_Idehs { get; set; }
+        public DbSet<Project_Incompleted> P_Incompleteds { get; set; }
 
+        //Faciliti
+        public DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
+        public DbSet<FacilitiNature> FacilitiNatures { get; set; }
+        public DbSet<FacilitiRelProject> FacilitiRelProjects { get; set; }
+        //Licence
+        public DbSet<Licence> Licences { get; set; }
+        public DbSet<LicenceRelProject> LicenceRelProjects { get; set; }
+        //Fund
+        public DbSet<Fund> Funds { get; set; }
+        public DbSet<FundRelProject> FundRelProjects { get; set; }
+        //Address
+        public DbSet<Address> Addresses { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             ////Relations
@@ -40,7 +54,25 @@ namespace Persistence.Contexts
                 .WithMany(p => p.Tokens)
                 .HasForeignKey(p => p.UserId)
                 .IsRequired(true);
+            //
 
+            builder.Entity<LicenceRelProject>()
+                .HasOne(p => p.Project_Incompleted)
+                .WithMany(p => p.Licences)
+                .HasForeignKey(p => p.ProjectId)
+                .IsRequired(true);
+
+            builder.Entity<FacilitiRelProject>()
+    .HasOne(p => p.Project_Incompleted)
+    .WithMany(p => p.Facilitis)
+    .HasForeignKey(p => p.ProjectId)
+    .IsRequired(true);
+
+            builder.Entity<FundRelProject>()
+.HasOne(p => p.Project_Incompleted)
+.WithMany(p => p.Funds)
+.HasForeignKey(p => p.ProjectId)
+.IsRequired(true);
 
             SetConfigurations(builder);
 

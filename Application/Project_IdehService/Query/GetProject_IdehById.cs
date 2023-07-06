@@ -2,6 +2,7 @@
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Domain.Project;
+using Domain.ProjectEnums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

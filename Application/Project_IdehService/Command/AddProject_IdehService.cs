@@ -3,6 +3,7 @@ using Application.Interfaces.Contexts;
 using Application.TokenService;
 using AutoMapper;
 using Domain.Project;
+using Domain.ProjectEnums;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

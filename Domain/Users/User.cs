@@ -17,6 +17,7 @@ namespace Domain.Users
         //Navs
         public ICollection<Token> Tokens { get; set; }
         public ICollection<Project_Ideh> P_Idehs { get; set; }
+        public ICollection<Project_Incompleted> P_Incompleteds { get; set; }
         //
         public DateTime TimeCreate { get; set; }
     }
