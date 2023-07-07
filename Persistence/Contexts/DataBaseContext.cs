@@ -4,6 +4,7 @@ using Domain.ProjectNeeds;
 using Domain.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Persistence.Configurations.ProjectNeeds;
 using Persistence.Configurations.Users;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,8 @@ namespace Persistence.Contexts
         public DbSet<FundRelProject> FundRelProjects { get; set; }
         //Address
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<United> Uniteds { get; set; }
+        public DbSet<City> Cities { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             ////Relations
@@ -74,6 +77,11 @@ namespace Persistence.Contexts
 .HasForeignKey(p => p.ProjectId)
 .IsRequired(true);
 
+            //For Address
+            builder.Entity<Address>()
+                .HasOne(p => p.City)
+                .WithMany();
+
             SetConfigurations(builder);
 
             base.OnModelCreating(builder);
@@ -85,7 +93,9 @@ namespace Persistence.Contexts
             builder.ApplyConfiguration(new UserConfig());
             builder.ApplyConfiguration(new RoleConfig());
             builder.ApplyConfiguration(new TokenConfig());
-
+            //Address
+            builder.ApplyConfiguration(new UnitedConfig());
+            
 
             base.OnModelCreating(builder);
         }

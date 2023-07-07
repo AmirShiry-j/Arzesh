@@ -67,6 +67,13 @@
             <param name="user"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.CityController.Get(System.Int32)">
+            <summary>
+            برگردوندن لیست شهر های هر استان برای کمبوباکس
+            </summary>
+            <param name="UnitedId"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.FacilitiNatureController.Get">
             <summary>
             برگردوندن لیست ماهیت های تسهیلات برای کمبوباکس
@@ -145,6 +152,12 @@
             حذف یک پروژه (نیمه تمام)
             </summary>
             <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UnitedController.Get">
+            <summary>
+            برگردوندن لیست استان ها برای کمبوباکس
+            </summary>
             <returns></returns>
         </member>
     </members>

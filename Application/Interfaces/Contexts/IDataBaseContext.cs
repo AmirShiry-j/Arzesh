@@ -32,6 +32,8 @@ namespace Application.Interfaces.Contexts
         DbSet<FundRelProject> FundRelProjects { get; set; }
         //Address
         DbSet<Address> Addresses { get; set; }
+        public DbSet<United> Uniteds { get; set; }
+        public DbSet<City> Cities { get; set; }
         int SaveChanges();
     }
 }

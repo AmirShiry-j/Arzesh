@@ -1,4 +1,5 @@
-﻿using Application.FacilitiNatureService.Query;
+﻿using Application.AddressesService.Query;
+using Application.FacilitiNatureService.Query;
 using Application.FacilitiStatusService.Query;
 using Application.FundService.Query;
 using Application.Interfaces.Contexts;
@@ -193,6 +194,10 @@ builder.Services.AddScoped<IGetFacilitiStatusService, GetFacilitiStatusService>(
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();
 builder.Services.AddScoped<IUserAuthorizeService, UserAuthorizeService>();
+
+//Address services
+builder.Services.AddScoped<IGetUnitedsService, GetUnitedsService>();
+builder.Services.AddScoped<IGetCitiesService, GetCitiesService>();
 
 //Service email
 builder.Services.AddScoped<IEmailService, EmailService>();
