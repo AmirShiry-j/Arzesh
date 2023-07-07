@@ -67,6 +67,18 @@
             <param name="user"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.FacilitiNatureController.Get">
+            <summary>
+            برگردوندن لیست ماهیت های تسهیلات برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.FacilitiStatusController.Get">
+            <summary>
+            برگردوندن لیست وضعیت های تسهیلات برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.FundController.Get">
             <summary>
             برگردوندن لیست سرمایه گذاری ها برای کمبوباکس

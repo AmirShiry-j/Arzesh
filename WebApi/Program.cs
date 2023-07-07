@@ -1,4 +1,6 @@
-﻿using Application.FundService.Query;
+﻿using Application.FacilitiNatureService.Query;
+using Application.FacilitiStatusService.Query;
+using Application.FundService.Query;
 using Application.Interfaces.Contexts;
 using Application.LicenceService.Query;
 using Application.Project_IdehService.Command;
@@ -183,6 +185,10 @@ builder.Services.AddScoped<IGetFundsService, GetFundsService>();
 
 //Licence Services
 builder.Services.AddScoped<IGetLicencesService, GetLicencesService>();
+
+//Faciliti Services
+builder.Services.AddScoped<IGetFacilitiNatureService, GetFacilitiNatureService>();
+builder.Services.AddScoped<IGetFacilitiStatusService, GetFacilitiStatusService>();
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();
