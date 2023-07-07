@@ -95,5 +95,33 @@
             <param name="ProjectId"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.Project_IncompletedController.Get(WebApi.ModelsAndDtoes.Project_Incompleted.SearchProject_IncompletedApiDto)">
+            <summary>
+            برگردوندن لیست پروژه ها (نیمه تمام)
+            </summary>
+            <param name="SearchDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.Project_IncompletedController.Get(System.Int32)">
+            <summary>
+            برگردوندن اطلاعات یک پروژه (نیمه تمام) با آیدی
+            </summary>
+            <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.Project_IncompletedController.Post(WebApi.ModelsAndDtoes.Project_Incompleted.CreateProject_IncompletedApiDto)">
+            <summary>
+            ثبت یک پروژه (نیمه تمام)
+            </summary>
+            <param name="CreateProjectDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.Project_IncompletedController.Delete(System.Int32)">
+            <summary>
+            حذف یک پروژه (نیمه تمام)
+            </summary>
+            <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
