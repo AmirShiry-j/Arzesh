@@ -1,5 +1,6 @@
 ﻿using Application.FundService.Query;
 using Application.Interfaces.Contexts;
+using Application.LicenceService.Query;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
@@ -180,6 +181,8 @@ builder.Services.AddScoped<IGetAllProject_IncompletedForUser, GetAllProject_Inco
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();
 
+//Licence Services
+builder.Services.AddScoped<IGetLicencesService, GetLicencesService>();
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();

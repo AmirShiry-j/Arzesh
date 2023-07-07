@@ -25,6 +25,6 @@ namespace Domain.ProjectNeeds
     {
         public int Id { get; set; }
         //نام
-        public int Name { get; set; }
+        public string Name { get; set; }
     }
 }
