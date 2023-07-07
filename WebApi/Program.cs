@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.Contexts;
+﻿using Application.FundService.Query;
+using Application.Interfaces.Contexts;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
@@ -175,6 +176,9 @@ builder.Services.AddScoped<IAddProject_IncompletedService, AddProject_Incomplete
 builder.Services.AddScoped<IDeleteProject_IncompletedService, DeleteProject_IncompletedService>();
 builder.Services.AddScoped<IGetProject_IncompletedById, GetProject_IncompletedById>();
 builder.Services.AddScoped<IGetAllProject_IncompletedForUser, GetAllProject_IncompletedForUser>();
+
+//Fund Services
+builder.Services.AddScoped<IGetFundsService, GetFundsService>();
 
 
 //Authorize and token services

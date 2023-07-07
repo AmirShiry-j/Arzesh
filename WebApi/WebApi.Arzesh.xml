@@ -67,6 +67,12 @@
             <param name="user"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.FundController.Get">
+            <summary>
+            برگردوندن لیست سرمایه گذاری ها برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.Project_IdehController.Get(WebApi.ModelsAndDtoes.Project_Ideh.SearchProject_IdehApiDto)">
             <summary>
             برگردوندن لیست پروژه ها (ایده)
