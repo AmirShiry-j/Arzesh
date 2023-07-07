@@ -28,8 +28,8 @@ namespace Application.FundService.Query
 
         public async Task<ResultDto<List<FundDto>>> Execute()
         {
-            //Get uniteds
-            var uniteds = _dbContext.Funds.Select(p => new FundDto
+            //Get funds
+            var funds = _dbContext.Funds.Select(p => new FundDto
             {
                 Id = p.Id,
                 Name = p.Name
@@ -38,7 +38,7 @@ namespace Application.FundService.Query
             return new ResultDto<List<FundDto>>
             {
                 IsSuccess = true,
-                Data = uniteds
+                Data = funds
             };
         }
     }
