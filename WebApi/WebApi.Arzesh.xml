@@ -92,6 +92,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.IndustriesController.Get">
+            <summary>
+            برگردوندن لیست صنایع و بخش ها ها برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.LicenceController.Get">
             <summary>
             برگردوندن لیست مجوز ها برای کمبوباکس

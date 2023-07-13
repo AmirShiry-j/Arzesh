@@ -2,6 +2,7 @@
 using Application.FacilitiNatureService.Query;
 using Application.FacilitiStatusService.Query;
 using Application.FundService.Query;
+using Application.IndustryService.Query;
 using Application.Interfaces.Contexts;
 using Application.LicenceService.Query;
 using Application.Project_IdehService.Command;
@@ -190,6 +191,9 @@ builder.Services.AddScoped<IGetLicencesService, GetLicencesService>();
 //Faciliti Services
 builder.Services.AddScoped<IGetFacilitiNatureService, GetFacilitiNatureService>();
 builder.Services.AddScoped<IGetFacilitiStatusService, GetFacilitiStatusService>();
+
+//Industry Services
+builder.Services.AddScoped<IGetIndustriesService, GetIndustriesService>();
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();
