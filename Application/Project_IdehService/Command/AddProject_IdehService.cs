@@ -33,6 +33,16 @@ namespace Application.Project_IdehService.Command
             var newIdeh = _mapper.Map<Project_Ideh>(IdehDto);
             newIdeh.UserId = UserId;
 
+            //Industry
+            var industry = _dbContext.Industries.Find(newIdeh.IndustryId);
+            if (industry == null)
+            {
+                return new ResultDto<int>
+                {
+                    Message = "صنعت و بخشی با آیدی ارسال موجود نیست"
+                };
+            }
+
             //save in db
             _dbContext.P_Idehs.Add(newIdeh);
             _dbContext.SaveChanges();

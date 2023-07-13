@@ -1,11 +1,14 @@
 ﻿using Domain.Project;
 using Domain.ProjectEnums;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApi.ModelsAndDtoes.Project_Ideh
 {
     public class CreateProject_IdehApiDto
     {
+        [Range(1, 2)]
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
+        [Range(0,100)]
         public int PercentParticipation { get; set; }
         public bool HaveSimilarDomesticCase { get; set; }
         public bool IsRegistered { get; set; }
@@ -18,4 +21,5 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
         public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
     }
+
 }
