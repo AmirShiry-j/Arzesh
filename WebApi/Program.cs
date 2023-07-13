@@ -1,4 +1,5 @@
 ﻿using Application.AddressesService.Query;
+using Application.CommonServices.Query;
 using Application.FacilitiNatureService.Query;
 using Application.FacilitiStatusService.Query;
 using Application.FundService.Query;
@@ -169,6 +170,9 @@ builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 //AuthoMapper Profile
 builder.Services.AddAutoMapper(typeof(Projects_MppingProfile));
 builder.Services.AddAutoMapper(typeof(Projects_Mpping_EndPointProfile));
+
+//Common Services
+builder.Services.AddScoped<IValidateService, ValidateService>();
 
 //Project_Ideh services
 builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();

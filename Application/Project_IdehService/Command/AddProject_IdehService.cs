@@ -1,4 +1,5 @@
 ﻿using Application.Common;
+using Application.CommonServices.Query;
 using Application.Interfaces.Contexts;
 using Application.TokenService;
 using AutoMapper;
@@ -21,36 +22,35 @@ namespace Application.Project_IdehService.Command
     {
         private readonly IDataBaseContext _dbContext;
         private readonly IMapper _mapper;
-        public AddProject_IdehService(IDataBaseContext dbContext,
-            IMapper mapper)
+        private readonly IValidateService _validateService;
+        public AddProject_IdehService
+(IDataBaseContext dbContext,
+            IMapper mapper,
+            IValidateService validateService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _validateService = validateService;
         }
         public async Task<ResultDto<int>> Execute(CreateProject_IdehDto IdehDto, string UserId)
         {
             //Map
-            var newIdeh = _mapper.Map<Project_Ideh>(IdehDto);
-            newIdeh.UserId = UserId;
+            var newProject = _mapper.Map<Project_Ideh>(IdehDto);
+            newProject.UserId = UserId;
 
             //Industry
-            var industry = _dbContext.Industries.Find(newIdeh.IndustryId);
-            if (industry == null)
-            {
-                return new ResultDto<int>
-                {
-                    Message = "صنعت و بخشی با آیدی ارسال موجود نیست"
-                };
-            }
+            var resultCheckIndustry = await _validateService.CheckIndustry((int)newProject.IndustryId);
+            if (!resultCheckIndustry.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
 
             //save in db
-            _dbContext.P_Idehs.Add(newIdeh);
+            _dbContext.P_Idehs.Add(newProject);
             _dbContext.SaveChanges();
 
             return new ResultDto<int>
             {
                 IsSuccess = true,
-                Data = newIdeh.Id
+                Data = newProject.Id
             };
         }
     }

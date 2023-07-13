@@ -1,4 +1,5 @@
 ﻿using Application.Common;
+using Application.CommonServices.Query;
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Domain.Project;
@@ -21,12 +22,15 @@ namespace Application.Project_IncompletedService.Command
     {
         private readonly IDataBaseContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IValidateService _validateService;
         public AddProject_IncompletedService
 (IDataBaseContext dbContext,
-            IMapper mapper)
+            IMapper mapper,
+            IValidateService validateService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _validateService = validateService;
         }
         public async Task<ResultDto<int>> Execute(CreateProject_IncompletedDto ProjectDto, string UserId)
         {
@@ -34,49 +38,52 @@ namespace Application.Project_IncompletedService.Command
             var newProject = _mapper.Map<Project_Incompleted>(ProjectDto);
             newProject.UserId = UserId;
 
+            //Industry
+            var resultCheckIndustry = await _validateService.CheckIndustry((int)newProject.IndustryId);
+            if (!resultCheckIndustry.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
+
+            ////Licence
+            var resultCheckLicences = await _validateService.CheckLicences(newProject.Licences.ToList());
+            if (!resultCheckLicences.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckLicences);
+            newProject.Licences.ToList().ForEach(p =>
+            {
+                p.ProjectType = ProjectType.Incompleted;
+                p.ProjectId = newProject.Id;
+            });
+
+            ////Faciliti
+            var resultCheckFacilitis = await _validateService.CheckFacilitis(newProject.Facilitis.ToList());
+            if (!resultCheckFacilitis.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckFacilitis);
+            newProject.Facilitis.ToList().ForEach(p =>
+            {
+                p.ProjectType = ProjectType.Incompleted;
+                p.ProjectId = newProject.Id;
+            });
+
+
+            ////Fund
+            var resultCheckFunds = await _validateService.CheckFunds(newProject.Funds.ToList());
+            if (!resultCheckFunds.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckFunds);
+            newProject.Funds.ToList().ForEach(p =>
+            {
+                p.ProjectType = ProjectType.Incompleted;
+                p.ProjectId = newProject.Id;
+            });
+
             ////Address
-            //Map
-            var newAddress = _mapper.Map<Address>(ProjectDto.Address);
-            _dbContext.Addresses.Add(newAddress);
-            _dbContext.SaveChanges();
-            newProject.AddressId = newAddress.Id;
+            var resultCheckAddress = await _validateService.CheckAddress(newProject.Address);
+            if (!resultCheckAddress.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckAddress);
+
 
             //save in db
             _dbContext.P_Incompleteds.Add(newProject);
             _dbContext.SaveChanges();
 
-            ////Licence
-            //Map
-            var newLicences = _mapper.Map<List<LicenceRelProject>>(ProjectDto.Licences);
-            newLicences.ForEach(p =>
-            {
-                p.ProjectType = ProjectType.Incompleted;
-                p.ProjectId = newProject.Id;
-            });
-            _dbContext.LicenceRelProjects.AddRange(newLicences);
-            _dbContext.SaveChanges();
-
-            ////Faciliti
-            //Map
-            var newFacilitis = _mapper.Map<List<FacilitiRelProject>>(ProjectDto.Facilitis);
-            newFacilitis.ForEach(p =>
-            {
-                p.ProjectType = ProjectType.Incompleted;
-                p.ProjectId = newProject.Id;
-            });
-            _dbContext.FacilitiRelProjects.AddRange(newFacilitis);
-            _dbContext.SaveChanges();
-
-            ////Fund
-            //Map
-            var newFunds = _mapper.Map<List<FundRelProject>>(ProjectDto.Funds);
-            newFunds.ForEach(p =>
-            {
-                p.ProjectType = ProjectType.Incompleted;
-                p.ProjectId = newProject.Id;
-            });
-            _dbContext.FundRelProjects.AddRange(newFunds);
-            _dbContext.SaveChanges();
 
             return new ResultDto<int>
             {

@@ -1,4 +1,5 @@
 ﻿
+using Application.Common;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
@@ -18,6 +19,8 @@ namespace Infrastructure.MappingProfile
     {
         public Projects_MppingProfile()
         {
+            CreateMap<ResultDto, ResultDto<int>>().ReverseMap();
+
             CreateMap<Project_Ideh, CreateProject_IdehDto>()
                 .ReverseMap();
             CreateMap<Project_Ideh, Project_IdehDetailDto>()

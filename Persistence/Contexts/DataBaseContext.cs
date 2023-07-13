@@ -85,20 +85,6 @@ namespace Persistence.Contexts
                 .HasOne(p => p.City)
                 .WithMany();
 
-            //For Industry
-//            builder.Entity<Project_Ideh>()
-//    .HasOne(p => p.Industry)
-//    .WithMany()
-//    .HasForeignKey(p => p.IndustryId)
-//    .OnDelete(DeleteBehavior.SetNull);
-
-//            builder.Entity<Project_Incompleted>()
-//.HasOne(p => p.Industry)
-//.WithMany()
-//.HasForeignKey(p => p.IndustryId)
-//.OnDelete(DeleteBehavior.SetNull);
-
-
             SetConfigurations(builder);
 
             base.OnModelCreating(builder);

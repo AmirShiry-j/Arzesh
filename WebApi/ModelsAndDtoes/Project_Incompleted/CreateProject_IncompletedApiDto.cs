@@ -1,14 +1,17 @@
 ﻿using Domain.ProjectEnums;
 using Domain.ProjectNeeds;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApi.ModelsAndDtoes.Project_Incompleted
 {
     public class CreateProject_IncompletedApiDto
     {
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
+        [Range(1, 2)]
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         //مشارکت
         //درصد مشارکت
+        [Range(0, 100)]
         public int PercentParticipation { get; set; }
         //مشارکت
         //آیا در حوزه فعالیت طرح سابقه و یا تجربه دارید؟ 
@@ -16,6 +19,7 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
         //کلیه مجوزهایی که تا کنون اخذ نموده اید
         public bool HaveAllLicences { get; set; }
         //محل اجرای طرح
+        [Range(1, 3)]
         public PlaceOfImplementation PlaceOfImplementation { get; set; }
         //اجاره
         public int RentTypeId { get; set; }
@@ -52,7 +56,6 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
     }
     public class CreateAddressApiDto
     {
-        public int UnitedId { get; set; }
         //شهرستان
         public int CityId { get; set; }
         //شهر
@@ -74,6 +77,7 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
     public class CreateFacilitiRelProjectApiDto
     {
         //نوع تسهیلات
+        [Range(1, 2)]
         public FacilitiType FacilitiType { get; set; }
         //وضعیت
         public int FacilitiStatusId { get; set; }
@@ -88,6 +92,7 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
         //محل تامین - بانک
         public string placeSupply_Bank { get; set; }
         //درصد سود
+        [Range(0, 100)]
         public int InterestRate { get; set; }
         //نوع وثیقه
         public string CollateralName { get; set; }
@@ -96,6 +101,7 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
     {
         public int FundId { get; set; }
         //درصد پیشرفت فیزیکی
+        [Range(0, 100)]
         public int PercenPhysicalProgress { get; set; }
         //مبلغ هزینه شده
         public int AmountSpent { get; set; }
