@@ -11,8 +11,6 @@ namespace Domain.ProjectNeeds
     public class Address
     {
         public int Id { get; set; }
-        //استان
-        public int UnitedId { get; set; }
         //شهرستان
         public int CityId { get; set; }
         //شهر
