@@ -34,6 +34,9 @@ namespace Application.Interfaces.Contexts
         DbSet<Address> Addresses { get; set; }
         public DbSet<United> Uniteds { get; set; }
         public DbSet<City> Cities { get; set; }
+        //Industry
+        public DbSet<Industry> Industries { get; set; }
+
         int SaveChanges();
     }
 }

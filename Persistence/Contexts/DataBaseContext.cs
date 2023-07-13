@@ -42,6 +42,9 @@ namespace Persistence.Contexts
         public DbSet<Address> Addresses { get; set; }
         public DbSet<United> Uniteds { get; set; }
         public DbSet<City> Cities { get; set; }
+        //Industry
+        public DbSet<Industry> Industries { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             ////Relations
@@ -82,6 +85,20 @@ namespace Persistence.Contexts
                 .HasOne(p => p.City)
                 .WithMany();
 
+            //For Industry
+//            builder.Entity<Project_Ideh>()
+//    .HasOne(p => p.Industry)
+//    .WithMany()
+//    .HasForeignKey(p => p.IndustryId)
+//    .OnDelete(DeleteBehavior.SetNull);
+
+//            builder.Entity<Project_Incompleted>()
+//.HasOne(p => p.Industry)
+//.WithMany()
+//.HasForeignKey(p => p.IndustryId)
+//.OnDelete(DeleteBehavior.SetNull);
+
+
             SetConfigurations(builder);
 
             base.OnModelCreating(builder);
@@ -95,7 +112,7 @@ namespace Persistence.Contexts
             builder.ApplyConfiguration(new TokenConfig());
             //Address
             builder.ApplyConfiguration(new UnitedConfig());
-            
+
 
             base.OnModelCreating(builder);
         }

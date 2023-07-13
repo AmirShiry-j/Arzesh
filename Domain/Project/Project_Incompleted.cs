@@ -28,8 +28,7 @@ namespace Domain.Project
         //اجاره
         public int RentTypeId { get; set; }
 
-        //ایده شما در چه صنعت و بخشی است؟
-        public int IndustryId { get; set; }
+
         //آیا طرح توجیهی برای ایده تدوین شده است؟
         public bool JustificationPlan { get; set; }
         //واگذاری
@@ -54,6 +53,11 @@ namespace Domain.Project
         //آدرس
         public Address Address { get; set; }
         public int AddressId { get; set; }
+
+        //ایده شما در چه صنعت و بخشی است؟
+        public int? IndustryId { get; set; }
+        public Industry Industry { get; set; }
+
         //مجوز ها
         public ICollection<LicenceRelProject> Licences { get; set; }
         //تسهیلات

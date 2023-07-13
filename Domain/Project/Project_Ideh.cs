@@ -1,4 +1,5 @@
 ﻿using Domain.ProjectEnums;
+using Domain.ProjectNeeds;
 using Domain.Users;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,7 @@ namespace Domain.Project
         public bool HasLicense { get; set; }
         //آیا طرح توجیهی برای ایده تدوین شده است؟
         public bool JustificationPlan { get; set; }
-        //ایده شما در چه صنعت و بخشی است؟
-        public int IndustryId { get; set; }
+
         //کل سرمایه مورد نیاز طرح
         public int RequiredCapitalPlan { get; set; }
         //میزان سرمایه مورد تقاضا
@@ -37,6 +37,9 @@ namespace Domain.Project
         //خالص ارزش فعلی پروژه
         public int NetPresentValue { get; set; }
 
+        //ایده شما در چه صنعت و بخشی است؟
+        public int? IndustryId { get; set; }
+        public Industry Industry { get; set; }
         //naves
         public User User { get; set; }
         public string UserId { get; set; }
