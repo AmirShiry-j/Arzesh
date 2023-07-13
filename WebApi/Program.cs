@@ -40,14 +40,14 @@ IConfiguration Configuration = builder.Configuration;
 
 //Add CORS configs
 //Get origins cores in appsetting
-//var corsOrigins = Configuration.GetSection("CorsOrigins").Get<string[]>();
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("CorsPolicy",
-//        b => b.WithOrigins(corsOrigins)
-//        .AllowAnyHeader()
-//        .AllowAnyMethod());
-//});
+var corsOrigins = Configuration.GetSection("CorsOrigins").Get<string[]>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        b => b.WithOrigins(corsOrigins)
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
 
 
 
@@ -255,7 +255,7 @@ if (app.Environment.IsProduction())
 app.UseHsts();
 app.UseHttpsRedirection();
 
-//app.UseCors("CorsPolicy");
+app.UseCors("CorsPolicy");
 app.UseRouting();
 
 app.UseAuthorization();
