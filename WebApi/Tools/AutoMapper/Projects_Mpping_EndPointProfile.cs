@@ -17,7 +17,6 @@ namespace WebApi.Tools.AutoMapper
         {
             //Common
             #region Common
-
             CreateMap<CreateAddressDto, CreateAddressApiDto>()
 .ReverseMap();
 
@@ -41,7 +40,6 @@ namespace WebApi.Tools.AutoMapper
                 .ReverseMap();
             #endregion
             //
-
 
             //Add Project_Incompleted
             #region Add Project_IncompletedDto
