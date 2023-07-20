@@ -1,6 +1,7 @@
 ﻿using Domain.Projects;
 using Domain.ProjectEnums;
 using System.ComponentModel.DataAnnotations;
+using WebApi.ModelsAndDtoes.Project_Incompleted;
 
 namespace WebApi.ModelsAndDtoes.Project_Ideh
 {
@@ -22,6 +23,9 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
         public string WhatTopicsNeedParticipate { get; set; }
         public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
+        [Required]
+        public CreateAddressApiDto Address { get; set; }
+
     }
 
 }

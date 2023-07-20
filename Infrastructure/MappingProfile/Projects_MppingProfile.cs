@@ -19,43 +19,22 @@ namespace Infrastructure.MappingProfile
     {
         public Projects_MppingProfile()
         {
+
             CreateMap<ResultDto, ResultDto<int>>().ReverseMap();
 
+            CreateMap<Project, CreateProject_IdehDto>()
+                .ReverseMap();
             CreateMap<Project_Ideh, CreateProject_IdehDto>()
+                .ReverseMap();
+            CreateMap<Address, CreateAddressDto>()
                 .ReverseMap();
 
             //Detail Project_Ideh
-            CreateMap<Project_Ideh, Project_IdehDetailDto>()
+            CreateMap<Project, Project_IdehDetailDto>()
             .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
        .ReverseMap();
 
-            //
-
-            CreateMap<Project_Ideh, Project_IdehDto>()
-.ReverseMap();
-
-            CreateMap<Address, CreateAddressDto>()
-.ReverseMap();
-
-            CreateMap<LicenceRelProject, CreateLicenceRelProjectDto>()
-.ReverseMap();
-
-            CreateMap<FacilitiRelProject, CreateFacilitiRelProjectDto>()
-.ReverseMap();
-
-            CreateMap<FundRelProject, CreateFundRelProjectDto>()
-.ReverseMap();
-
-            CreateMap<Project_Incompleted, CreateProject_IncompletedDto>()
-.ReverseMap();
-
-
-            CreateMap<Project_Incompleted, Project_IncompletedDto>()
-.ReverseMap();
-
-            //Detail Project_Incompleted
-            CreateMap<Project_Incompleted, Project_IncompletedDetailDto>()
-            .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
+            CreateMap<Project_Ideh, Project_IdehDetailDto>()
 .ReverseMap();
 
             CreateMap<Address, AddressDetailDto>()
@@ -64,19 +43,48 @@ namespace Infrastructure.MappingProfile
             .ForMember(dto => dto.CityName, entity => entity.MapFrom(p => p.City.Name))
 .ReverseMap();
 
-
-            CreateMap<LicenceRelProject, LicenceRelProjectDetailDto>()
-            .ForMember(dto => dto.LicenceName, entity => entity.MapFrom(p => p.Licence.Name))
+            CreateMap<Project, ProjectDto>()
 .ReverseMap();
+            //            //
 
-            CreateMap<FacilitiRelProject, FacilitiRelProjectDetailDto>()
-            .ForMember(dto => dto.FacilitiNatureName, entity => entity.MapFrom(p => p.FacilitiNature.Name))
-            .ForMember(dto => dto.FacilitiStatusName, entity => entity.MapFrom(p => p.FacilitiStatus.Name))
-.ReverseMap();
 
-            CreateMap<FundRelProject, FundRelProjectDetailDto>()
-            .ForMember(dto => dto.FundName, entity => entity.MapFrom(p => p.Fund.Name))
-.ReverseMap();
+
+
+            //            CreateMap<LicenceRelProject, CreateLicenceRelProjectDto>()
+            //.ReverseMap();
+
+            //            CreateMap<FacilitiRelProject, CreateFacilitiRelProjectDto>()
+            //.ReverseMap();
+
+            //            CreateMap<FundRelProject, CreateFundRelProjectDto>()
+            //.ReverseMap();
+
+            //            CreateMap<Project_Incompleted, CreateProject_IncompletedDto>()
+            //.ReverseMap();
+
+
+            //            CreateMap<Project_Incompleted, Project_IncompletedDto>()
+            //.ReverseMap();
+
+            //Detail Project_Incompleted
+            //            CreateMap<Project_Incompleted, Project_IncompletedDetailDto>()
+            //            .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
+            //.ReverseMap();
+
+
+
+            //            CreateMap<LicenceRelProject, LicenceRelProjectDetailDto>()
+            //            .ForMember(dto => dto.LicenceName, entity => entity.MapFrom(p => p.Licence.Name))
+            //.ReverseMap();
+
+            //            CreateMap<FacilitiRelProject, FacilitiRelProjectDetailDto>()
+            //            .ForMember(dto => dto.FacilitiNatureName, entity => entity.MapFrom(p => p.FacilitiNature.Name))
+            //            .ForMember(dto => dto.FacilitiStatusName, entity => entity.MapFrom(p => p.FacilitiStatus.Name))
+            //.ReverseMap();
+
+            //            CreateMap<FundRelProject, FundRelProjectDetailDto>()
+            //            .ForMember(dto => dto.FundName, entity => entity.MapFrom(p => p.Fund.Name))
+            //.ReverseMap();
             //
         }
     }

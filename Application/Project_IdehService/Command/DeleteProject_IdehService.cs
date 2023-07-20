@@ -27,7 +27,7 @@ namespace Application.Project_IdehService.Command
         public async Task<ResultDto> Execute(int ProjectId, string UserId)
         {
             //find project
-            var project = _dbContext.P_Idehs.Find(ProjectId);
+            var project = _dbContext.Projects.Find(ProjectId);
 
             //check is exist
             if (project == null)
@@ -50,7 +50,7 @@ namespace Application.Project_IdehService.Command
             }
 
             //delete in db
-            _dbContext.P_Idehs.Remove(project);
+            _dbContext.Projects.Remove(project);
             _dbContext.SaveChanges();
 
             return new ResultDto

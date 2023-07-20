@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Project_IncompletedService.Query;
 
 namespace Application.Project_IdehService.Query
 {
@@ -32,8 +33,12 @@ namespace Application.Project_IdehService.Query
         public async Task<ResultDto<Project_IdehDetailDto>> Execute(int Id, string UserId)
         {
             //get ideh from db
-            var project = _dbContext.P_Idehs.Where(p => p.Id.Equals(Id))
+            var project = _dbContext.Projects.Where(p => p.Id.Equals(Id))
                 .Include(p => p.Industry)
+                .Include(p => p.P_Ideh)
+                .Include(p => p.Address)
+                .ThenInclude(p => p.City)
+                .ThenInclude(p => p.United)
                 .FirstOrDefault()
                 ;
 
@@ -71,7 +76,7 @@ namespace Application.Project_IdehService.Query
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public AssignmentOrParticipation AssignmentOrParticipation { get; set; }       
+        public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         public int PercentParticipation { get; set; }
         public bool HaveSimilarDomesticCase { get; set; }
         public bool IsRegistered { get; set; }
@@ -84,6 +89,7 @@ namespace Application.Project_IdehService.Query
         public string WhatTopicsNeedParticipate { get; set; }
         public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
+        public AddressDetailDto Address { get; set; }
         public List<Link> Links { get; set; }
 
     }

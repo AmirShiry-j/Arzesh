@@ -28,37 +28,42 @@ namespace Application.Project_IncompletedService.Query
 
         public async Task<ResultDto<ResultSearchDto>> Execute(SearchProject_IncompletedDto SearchDto, string UserId)
         {
-            //Build Predicate
-            var prProject = PredicateBuilder.True<Project_Incompleted>();
-
-            prProject = prProject.And(x => x.UserId.Equals(UserId));
-
-            //get projects from db
-            var projects = _dbContext.P_Incompleteds
-                .Where(prProject)
-                                .OrderByDescending(p => p.Id)
-                //For Pagination
-                .Skip((SearchDto.Page.Value - 1) * SearchDto.CountInPage.Value)
-                .Take(SearchDto.CountInPage.Value)
-                .ToList();
-
-            //For Pagination
-            int CountAllItems = _dbContext.P_Incompleteds.Where(prProject).Count();
-
-            //map
-            var dtoProjects = _mapper.Map<List<Project_IncompletedDto>>(projects);
-
             return new ResultDto<ResultSearchDto>
             {
-                IsSuccess = true,
-                Data = new ResultSearchDto
-                {
-                    Page = SearchDto.Page.Value,
-                    CountInPage = SearchDto.CountInPage.Value,
-                    CountAllItems = CountAllItems,
-                    Projects = dtoProjects
-                }
+
             };
+
+            ////Build Predicate
+            //var prProject = PredicateBuilder.True<Project_Incompleted>();
+
+            //prProject = prProject.And(x => x.UserId.Equals(UserId));
+
+            ////get projects from db
+            //var projects = _dbContext.P_Incompleteds
+            //    .Where(prProject)
+            //                    .OrderByDescending(p => p.Id)
+            //    //For Pagination
+            //    .Skip((SearchDto.Page.Value - 1) * SearchDto.CountInPage.Value)
+            //    .Take(SearchDto.CountInPage.Value)
+            //    .ToList();
+
+            ////For Pagination
+            //int CountAllItems = _dbContext.P_Incompleteds.Where(prProject).Count();
+
+            ////map
+            //var dtoProjects = _mapper.Map<List<Project_IncompletedDto>>(projects);
+
+            //return new ResultDto<ResultSearchDto>
+            //{
+            //    IsSuccess = true,
+            //    Data = new ResultSearchDto
+            //    {
+            //        Page = SearchDto.Page.Value,
+            //        CountInPage = SearchDto.CountInPage.Value,
+            //        CountAllItems = CountAllItems,
+            //        Projects = dtoProjects
+            //    }
+            //};
         }
     }
     public class SearchProject_IncompletedDto

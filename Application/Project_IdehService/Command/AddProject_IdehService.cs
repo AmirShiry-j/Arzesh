@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Project_IncompletedService.Command;
 
 namespace Application.Project_IdehService.Command
 {
@@ -35,8 +36,16 @@ namespace Application.Project_IdehService.Command
         public async Task<ResultDto<int>> Execute(CreateProject_IdehDto IdehDto, string UserId)
         {
             //Map
-            var newProject = _mapper.Map<Project_Ideh>(IdehDto);
+            var newProject = _mapper.Map<Project>(IdehDto);
+            newProject.ProjectTypeId = (int)ProjectTypeEnum.Ideh;
             newProject.UserId = UserId;
+            //
+            newProject.P_Ideh = _mapper.Map<Project_Ideh>(IdehDto);
+
+            //Address
+            var resultCheckAddress = await _validateService.CheckAddress(newProject.Address);
+            if (!resultCheckAddress.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckAddress);
 
             //Industry
             var resultCheckIndustry = await _validateService.CheckIndustry((int)newProject.IndustryId);
@@ -44,7 +53,7 @@ namespace Application.Project_IdehService.Command
                 return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
 
             //save in db
-            _dbContext.P_Idehs.Add(newProject);
+            _dbContext.Projects.Add(newProject);
             _dbContext.SaveChanges();
 
             return new ResultDto<int>
@@ -69,6 +78,7 @@ namespace Application.Project_IdehService.Command
         public string WhatTopicsNeedParticipate { get; set; }
         public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
+        public CreateAddressDto Address { get; set; }
 
     }
 }

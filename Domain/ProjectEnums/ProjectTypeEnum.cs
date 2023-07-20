@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ProjectEnums
 {
-    public enum ProjectType
+    public enum ProjectTypeEnum
     {
         //ایده
         Ideh = 1,
