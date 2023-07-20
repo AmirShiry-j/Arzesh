@@ -18,8 +18,7 @@ namespace Domain.ProjectNeeds
         public Licence Licence { get; set; }
         //
         public int ProjectId { get; set; }
-        public ProjectType ProjectType { get; set; }
-        public Project_Incompleted Project_Incompleted { get; set; }
+        public Project Project { get; set; }
     }
     public class Licence
     {

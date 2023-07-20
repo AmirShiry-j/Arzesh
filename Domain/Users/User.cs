@@ -16,8 +16,7 @@ namespace Domain.Users
         public UserType UserType { get; set; }
         //Navs
         public ICollection<Token> Tokens { get; set; }
-        public ICollection<Project_Ideh> P_Idehs { get; set; }
-        public ICollection<Project_Incompleted> P_Incompleteds { get; set; }
+        public ICollection<Project> Projects { get; set; }
         //
         public DateTime TimeCreate { get; set; }
     }

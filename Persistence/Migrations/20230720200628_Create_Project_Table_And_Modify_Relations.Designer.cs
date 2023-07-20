@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Contexts;
 
@@ -11,9 +12,11 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230720200628_Create_Project_Table_And_Modify_Relations")]
+    partial class Create_Project_Table_And_Modify_Relations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -311,9 +314,6 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProjectTypeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ReturnInvestmentRate")
                         .HasColumnType("int");
 
@@ -325,26 +325,9 @@ namespace Persistence.Migrations
 
                     b.HasIndex("IndustryId");
 
-                    b.HasIndex("ProjectTypeId")
-                        .IsUnique();
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Projects");
-                });
-
-            modelBuilder.Entity("Domain.Projects.ProjectType", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProjectTypes");
                 });
 
             modelBuilder.Entity("Domain.Projects.Project_Ideh", b =>
@@ -815,12 +798,6 @@ namespace Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("IndustryId");
 
-                    b.HasOne("Domain.Projects.ProjectType", "ProjectType")
-                        .WithOne("Project")
-                        .HasForeignKey("Domain.Projects.Project", "ProjectTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Users.User", "User")
                         .WithMany("Projects")
                         .HasForeignKey("UserId")
@@ -828,8 +805,6 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Industry");
-
-                    b.Navigation("ProjectType");
 
                     b.Navigation("User");
                 });
@@ -937,12 +912,6 @@ namespace Persistence.Migrations
                     b.Navigation("P_Idehs");
 
                     b.Navigation("P_Incompleteds");
-                });
-
-            modelBuilder.Entity("Domain.Projects.ProjectType", b =>
-                {
-                    b.Navigation("Project")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Users.User", b =>

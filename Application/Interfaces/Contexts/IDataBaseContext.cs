@@ -17,6 +17,8 @@ namespace Application.Interfaces.Contexts
         DbSet<Role> Roles { get; set; }
         DbSet<Token> Tokens { get; set; }
         //Projects
+        public DbSet<ProjectType> ProjectTypes { get; set; }
+        DbSet<Project> Projects { get; set; }
         DbSet<Project_Ideh> P_Idehs { get; set; }
         DbSet<Project_Incompleted> P_Incompleteds { get; set; }
 

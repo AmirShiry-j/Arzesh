@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Persistence.Configurations.Projects;
 
 namespace Persistence.Contexts
 {
@@ -25,6 +26,8 @@ namespace Persistence.Contexts
         public DbSet<Role> Roles { get; set; }
         public DbSet<Token> Tokens { get; set; }
         //Projects
+        public DbSet<ProjectType> ProjectTypes { get; set; }
+        public DbSet<Project> Projects { get; set; }
         public DbSet<Project_Ideh> P_Idehs { get; set; }
         public DbSet<Project_Incompleted> P_Incompleteds { get; set; }
 
@@ -63,28 +66,29 @@ namespace Persistence.Contexts
             //
 
             builder.Entity<LicenceRelProject>()
-                .HasOne(p => p.Project_Incompleted)
+                .HasOne(p => p.Project)
                 .WithMany(p => p.Licences)
                 .HasForeignKey(p => p.ProjectId)
                 .IsRequired(true);
 
             builder.Entity<FacilitiRelProject>()
-    .HasOne(p => p.Project_Incompleted)
+    .HasOne(p => p.Project)
     .WithMany(p => p.Facilitis)
     .HasForeignKey(p => p.ProjectId)
     .IsRequired(true);
 
             builder.Entity<FundRelProject>()
-.HasOne(p => p.Project_Incompleted)
+.HasOne(p => p.Project)
 .WithMany(p => p.Funds)
 .HasForeignKey(p => p.ProjectId)
 .IsRequired(true);
 
-            builder.Entity<Project_Incompleted>()
+            builder.Entity<Project>()
 .HasOne(p => p.Address)
-.WithOne(p => p.Project_Incompleted)
+.WithOne(p => p.Project)
 .HasForeignKey<Address>(p => p.ProjectId)
-.IsRequired(true);
+.IsRequired(true)
+.OnDelete(DeleteBehavior.Cascade);
 
             //For Address
             builder.Entity<Address>()
@@ -104,9 +108,12 @@ namespace Persistence.Contexts
             builder.ApplyConfiguration(new UserConfig());
             builder.ApplyConfiguration(new RoleConfig());
             builder.ApplyConfiguration(new TokenConfig());
+
+            //Projects
+            builder.ApplyConfiguration(new ProjectTypeConfig());
+
             //Address
             builder.ApplyConfiguration(new UnitedConfig());
-
 
             base.OnModelCreating(builder);
         }

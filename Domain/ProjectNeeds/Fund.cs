@@ -21,9 +21,8 @@ namespace Domain.ProjectNeeds
         //بر آورد کل مبلغ مورد نیاز
         public int TotalAmountNeeded { get; set; }
         //
-        public ProjectType ProjectType { get; set; }
         public int ProjectId { get; set; }
-        public Project_Incompleted Project_Incompleted { get; set; }
+        public Project Project { get; set; }
     }
     public class Fund
     {

@@ -31,10 +31,8 @@ namespace Domain.ProjectNeeds
         public int InterestRate { get; set; }
         //نوع وثیقه
         public string CollateralName { get; set; }
-        //
-        public ProjectType ProjectType { get; set; }
         public int ProjectId { get; set; }
-        public Project_Incompleted Project_Incompleted { get; set; }
+        public Project Project { get; set; }
     }
     public class FacilitiStatus
     {

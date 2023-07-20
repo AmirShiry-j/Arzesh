@@ -12,8 +12,6 @@ namespace Domain.Projects
     public class Project_Ideh
     {
         public int Id { get; set; }
-        //نام پروژه
-        public string Name { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         //مشارکت
@@ -30,24 +28,18 @@ namespace Domain.Projects
 
         //کل سرمایه مورد نیاز طرح
         public int RequiredCapitalPlan { get; set; }
-        //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+
         //در چه سرفصل‌هایی نیاز به مشارکت دارید؟
         public string WhatTopicsNeedParticipate { get; set; }
-        //نرخ بازگشت سرمایه طرح
-        public int ReturnInvestmentRate { get; set; }
+
         //خالص ارزش فعلی پروژه
         public int NetPresentValue { get; set; }
 
-        //ایده شما در چه صنعت و بخشی است؟
-        public int? IndustryId { get; set; }
-        public Industry Industry { get; set; }
+
         //naves
-        //آدرس
-        //public Address Address { get; set; }
-        //
-        public User User { get; set; }
-        public string UserId { get; set; }
+
+        public Project Project { get; set; }
+        public int ProjectId { get; set; }
     }
 
 }
