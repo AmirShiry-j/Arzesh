@@ -12,6 +12,8 @@ namespace Domain.Project
     public class Project_Ideh
     {
         public int Id { get; set; }
+        //نام پروژه
+        public string Name { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         //مشارکت
@@ -41,6 +43,9 @@ namespace Domain.Project
         public int? IndustryId { get; set; }
         public Industry Industry { get; set; }
         //naves
+        //آدرس
+        //public Address Address { get; set; }
+        //
         public User User { get; set; }
         public string UserId { get; set; }
     }

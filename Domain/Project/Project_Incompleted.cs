@@ -13,6 +13,8 @@ namespace Domain.Project
     public class Project_Incompleted
     {
         public int Id { get; set; }
+        //نام پروژه
+        public string Name { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         //مشارکت

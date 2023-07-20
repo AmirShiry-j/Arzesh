@@ -8,7 +8,9 @@ namespace Domain.ProjectEnums
 {
     public enum AssignmentOrParticipation
     {
+        //واگذاری
         Assignment = 1,
+        //مشارکت
         Participation = 2
     }
 }
