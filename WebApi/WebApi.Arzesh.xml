@@ -104,6 +104,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.ProjectController.Delete(System.Int32)">
+            <summary>
+            حذف یک پروژه
+            </summary>
+            <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.Project_IdehController.Get(WebApi.ModelsAndDtoes.Project_Ideh.SearchProject_IdehApiDto)">
             <summary>
             برگردوندن لیست پروژه ها (ایده)
@@ -125,13 +132,6 @@
             <param name="CreateProjectDto"></param>
             <returns></returns>
         </member>
-        <member name="M:WebApi.Controllers.Project_IdehController.Delete(System.Int32)">
-            <summary>
-            حذف یک پروژه (ایده)
-            </summary>
-            <param name="ProjectId"></param>
-            <returns></returns>
-        </member>
         <member name="M:WebApi.Controllers.Project_IncompletedController.Get(WebApi.ModelsAndDtoes.Project_Incompleted.SearchProject_IncompletedApiDto)">
             <summary>
             برگردوندن لیست پروژه ها (نیمه تمام)
@@ -151,13 +151,6 @@
             ثبت یک پروژه (نیمه تمام)
             </summary>
             <param name="CreateProjectDto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WebApi.Controllers.Project_IncompletedController.Delete(System.Int32)">
-            <summary>
-            حذف یک پروژه (نیمه تمام)
-            </summary>
-            <param name="ProjectId"></param>
             <returns></returns>
         </member>
         <member name="M:WebApi.Controllers.UnitedController.Get">

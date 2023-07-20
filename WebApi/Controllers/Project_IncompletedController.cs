@@ -1,6 +1,5 @@
 ﻿using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
-using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.ModelsAndDtoes.Project_Incompleted;
 using Application.Common;
+using Application.Project_Service.Command;
 
 namespace WebApi.Controllers
 {
@@ -18,19 +18,16 @@ namespace WebApi.Controllers
     public class Project_IncompletedController : ControllerBase
     {
         private readonly IAddProject_IncompletedService _addProject_IncompletedService;
-        private readonly IDeleteProject_IncompletedService _deleteProject_IncompletedService;
         private readonly IGetProject_IncompletedById _getProject_IncompletedById;
         private readonly IGetAllProject_IncompletedForUser _getAllProject_IncompletedForUser;
         private readonly IMapper _mapper;
 
         public Project_IncompletedController(IAddProject_IncompletedService addProject_IncompletedService,
-            IDeleteProject_IncompletedService deleteProject_IncompletedService,
             IGetProject_IncompletedById getProject_IncompletedById,
             IGetAllProject_IncompletedForUser getAllProject_IncompletedForUser,
             IMapper mapper)
         {
             _addProject_IncompletedService = addProject_IncompletedService;
-            _deleteProject_IncompletedService = deleteProject_IncompletedService;
             _getAllProject_IncompletedForUser = getAllProject_IncompletedForUser;
             _getProject_IncompletedById = getProject_IncompletedById;
             _mapper = mapper;
@@ -95,7 +92,7 @@ namespace WebApi.Controllers
                     {
                         For="Delete",
                         HttpMethod=HttpMethod.Delete.ToString(),
-                        Url=Url.Action(nameof(Delete),"Project_Incompleted",new {ProjectId=ProjectId },Request.Scheme)
+                        Url=Url.Action("Delete","Project",new {ProjectId=ProjectId },Request.Scheme)
                     },
                 };
 
@@ -130,31 +127,6 @@ namespace WebApi.Controllers
                 string url = Url.Action(nameof(Get), "Project_Incompleted", new { ProjectId = resultService.Data }, Request.Scheme);
 
                 return Created(url, "پروژه (نیمه تمام) شما ثبت گردید");
-            }
-            else
-            {
-                return BadRequest(resultService.Message);
-            }
-        }
-
-        /// <summary>
-        /// حذف یک پروژه (نیمه تمام)
-        /// </summary>
-        /// <param name="ProjectId"></param>
-        /// <returns></returns>
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [HttpDelete("{ProjectId}")]
-        public async Task<IActionResult> Delete(int ProjectId)
-        {
-            //Get UserId
-            var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
-
-            //Delete Project by service
-            var resultService = await _deleteProject_IncompletedService.Execute(ProjectId, userId);
-
-            if (resultService.IsSuccess)
-            {
-                return Ok("پروژه (نیمه تمام) شما حذف گردید");
             }
             else
             {

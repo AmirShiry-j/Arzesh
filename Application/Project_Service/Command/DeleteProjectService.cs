@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Project_IncompletedService.Command
+namespace Application.Project_Service.Command
 {
-    public interface IDeleteProject_IncompletedService
+    public interface IDeleteProjectService
     {
         Task<ResultDto> Execute(int ProjectId, string UserId);
     }
-    public class DeleteProject_IncompletedService : IDeleteProject_IncompletedService
+    public class DeleteProjectService : IDeleteProjectService
     {
         private readonly IDataBaseContext _dbContext;
         private readonly IMapper _mapper;
-        public DeleteProject_IncompletedService(IDataBaseContext dbContext,
+        public DeleteProjectService(IDataBaseContext dbContext,
             IMapper mapper)
         {
             _dbContext = dbContext;

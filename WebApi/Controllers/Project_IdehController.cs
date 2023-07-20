@@ -17,19 +17,16 @@ namespace WebApi.Controllers
     public class Project_IdehController : ControllerBase
     {
         private readonly IAddProject_IdehService _addProject_IdehService;
-        private readonly IDeleteProject_IdehService _deleteProject_IdehService;
         private readonly IGetProject_IdehById _getProject_IdehById;
         private readonly IGetAllProject_IdehForUser _getAllProject_IdehForUser;
         private readonly IMapper _mapper;
 
         public Project_IdehController(IAddProject_IdehService addProject_IdehService,
-            IDeleteProject_IdehService deleteProject_IdehService,
             IGetProject_IdehById getProject_IdehById,
             IGetAllProject_IdehForUser getAllProject_IdehForUser,
             IMapper mapper)
         {
             _addProject_IdehService = addProject_IdehService;
-            _deleteProject_IdehService = deleteProject_IdehService;
             _getAllProject_IdehForUser = getAllProject_IdehForUser;
             _getProject_IdehById = getProject_IdehById;
             _mapper = mapper;
@@ -95,7 +92,7 @@ namespace WebApi.Controllers
                     {
                         For="Delete",
                         HttpMethod=HttpMethod.Delete.ToString(),
-                        Url=Url.Action(nameof(Delete),"Project_Ideh",new {ProjectId=ProjectId },Request.Scheme)
+                        Url=Url.Action("Delete","Project",new {ProjectId=ProjectId },Request.Scheme)
                     },
                 };
 
@@ -130,31 +127,6 @@ namespace WebApi.Controllers
                 string url = Url.Action(nameof(Get), "Project_Ideh", new { ProjectId = resultService.Data }, Request.Scheme);
 
                 return Created(url, "پروژه (ایده) شما ثبت گردید");
-            }
-            else
-            {
-                return BadRequest(resultService.Message);
-            }
-        }
-
-        /// <summary>
-        /// حذف یک پروژه (ایده)
-        /// </summary>
-        /// <param name="ProjectId"></param>
-        /// <returns></returns>
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [HttpDelete("{ProjectId}")]
-        public async Task<IActionResult> Delete(int ProjectId)
-        {
-            //Get UserId
-            var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
-
-            //Delete Project by service
-            var resultService = await _deleteProject_IdehService.Execute(ProjectId, userId);
-
-            if (resultService.IsSuccess)
-            {
-                return Ok("پروژه (ایده) شما حذف گردید");
             }
             else
             {
