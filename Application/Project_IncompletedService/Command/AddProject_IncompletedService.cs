@@ -91,6 +91,7 @@ namespace Application.Project_IncompletedService.Command
     }
     public class CreateProject_IncompletedDto
     {
+        public string Name { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         //مشارکت

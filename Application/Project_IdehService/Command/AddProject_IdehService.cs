@@ -56,6 +56,7 @@ namespace Application.Project_IdehService.Command
     }
     public class CreateProject_IdehDto
     {
+        public string Name { get; set; }
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         public int PercentParticipation { get; set; }
         public bool HaveSimilarDomesticCase { get; set; }

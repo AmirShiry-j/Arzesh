@@ -83,7 +83,8 @@ namespace Application.Project_IncompletedService.Query
     {
 
         public int Id { get; set; }
-        public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
+        public string Name { get; set; }
+        public AssignmentOrParticipation AssignmentOrParticipation { get; set; }        //نام پروژه
         public int PercentParticipation { get; set; }
         public int AmountOfExperience { get; set; }
         public bool HaveAllLicences { get; set; }

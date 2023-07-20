@@ -70,7 +70,8 @@ namespace Application.Project_IdehService.Query
     public class Project_IdehDetailDto
     {
         public int Id { get; set; }
-        public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
+        public string Name { get; set; }
+        public AssignmentOrParticipation AssignmentOrParticipation { get; set; }       
         public int PercentParticipation { get; set; }
         public bool HaveSimilarDomesticCase { get; set; }
         public bool IsRegistered { get; set; }

@@ -6,6 +6,8 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
 {
     public class CreateProject_IncompletedApiDto
     {
+        //نام پروژه
+        public string Name { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         [Range(1, 2)]
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }

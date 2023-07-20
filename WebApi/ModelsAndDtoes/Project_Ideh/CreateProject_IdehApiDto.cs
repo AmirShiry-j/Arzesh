@@ -6,6 +6,8 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
 {
     public class CreateProject_IdehApiDto
     {
+        //نام پروژه
+        public string Name { get; set; }
         [Range(1, 2)]
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         [Range(0,100)]
