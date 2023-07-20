@@ -1,5 +1,5 @@
 ﻿using Domain.Common;
-using Domain.Project;
+using Domain.Projects;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

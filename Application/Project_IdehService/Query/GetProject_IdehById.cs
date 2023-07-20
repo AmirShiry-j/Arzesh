@@ -1,7 +1,7 @@
 ﻿using Application.Common;
 using Application.Interfaces.Contexts;
 using AutoMapper;
-using Domain.Project;
+using Domain.Projects;
 using Domain.ProjectEnums;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Project
+namespace Domain.Projects
 {
     public class Project_Ideh
     {

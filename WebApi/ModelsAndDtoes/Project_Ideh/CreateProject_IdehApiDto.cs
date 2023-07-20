@@ -1,4 +1,4 @@
-﻿using Domain.Project;
+﻿using Domain.Projects;
 using Domain.ProjectEnums;
 using System.ComponentModel.DataAnnotations;
 

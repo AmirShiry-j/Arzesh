@@ -3,7 +3,7 @@ using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
 using AutoMapper;
-using Domain.Project;
+using Domain.Projects;
 using WebApi.ModelsAndDtoes.Project_Ideh;
 using WebApi.ModelsAndDtoes.Project_Incompleted;
 
