@@ -33,8 +33,8 @@ namespace Domain.Projects
         //آدرس
         public Address Address { get; set; }
 
-        public ICollection<Project_Ideh> P_Idehs { get; set; }
-        public ICollection<Project_Incompleted> P_Incompleteds { get; set; }
+        public Project_Ideh P_Ideh { get; set; }
+        public Project_Incompleted P_Incompleted { get; set; }
         //
         //مجوز ها
         public ICollection<LicenceRelProject> Licences { get; set; }

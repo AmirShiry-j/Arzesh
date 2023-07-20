@@ -11,6 +11,6 @@ namespace Domain.Projects
         public int Id { get; set; }
         public string Name { get; set; }
         //Naves
-        public Project Project { get; set; }
+        public ICollection<Project> Projects { get; set; }
     }
 }
