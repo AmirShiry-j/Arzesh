@@ -21,10 +21,14 @@ namespace Domain.ProjectNeeds
         public string Street { get; set; }
         //کد پستی
         public string PostalCode { get; set; }
-        //
-        public Project_Incompleted Project_Incompleted { get; set; }
+
         //
         public City City { get; set; }
+
+        //
+        public ProjectType ProjectType { get; set; }
+        public int ProjectId { get; set; }
+        public Project_Incompleted Project_Incompleted { get; set; }
     }
 
     public class United

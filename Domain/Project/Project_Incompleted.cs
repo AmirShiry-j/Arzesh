@@ -52,7 +52,6 @@ namespace Domain.Project
         ////naves
         //آدرس
         public Address Address { get; set; }
-        public int AddressId { get; set; }
 
         //ایده شما در چه صنعت و بخشی است؟
         public int? IndustryId { get; set; }

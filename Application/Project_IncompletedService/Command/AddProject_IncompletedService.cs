@@ -50,7 +50,6 @@ namespace Application.Project_IncompletedService.Command
             newProject.Licences.ToList().ForEach(p =>
             {
                 p.ProjectType = ProjectType.Incompleted;
-                p.ProjectId = newProject.Id;
             });
 
             ////Faciliti
@@ -60,7 +59,6 @@ namespace Application.Project_IncompletedService.Command
             newProject.Facilitis.ToList().ForEach(p =>
             {
                 p.ProjectType = ProjectType.Incompleted;
-                p.ProjectId = newProject.Id;
             });
 
 
@@ -71,14 +69,13 @@ namespace Application.Project_IncompletedService.Command
             newProject.Funds.ToList().ForEach(p =>
             {
                 p.ProjectType = ProjectType.Incompleted;
-                p.ProjectId = newProject.Id;
             });
 
             ////Address
             var resultCheckAddress = await _validateService.CheckAddress(newProject.Address);
             if (!resultCheckAddress.IsSuccess)
                 return _mapper.Map<ResultDto<int>>(resultCheckAddress);
-
+            newProject.Address.ProjectType = ProjectType.Incompleted;
 
             //save in db
             _dbContext.P_Incompleteds.Add(newProject);

@@ -77,6 +77,7 @@ namespace Infrastructure.MappingProfile
             CreateMap<FundRelProject, FundRelProjectDetailDto>()
             .ForMember(dto => dto.FundName, entity => entity.MapFrom(p => p.Fund.Name))
 .ReverseMap();
+            //
         }
     }
 }

@@ -80,10 +80,18 @@ namespace Persistence.Contexts
 .HasForeignKey(p => p.ProjectId)
 .IsRequired(true);
 
+            builder.Entity<Project_Incompleted>()
+.HasOne(p => p.Address)
+.WithOne(p => p.Project_Incompleted)
+.HasForeignKey<Address>(p => p.ProjectId)
+.IsRequired(true);
+
             //For Address
             builder.Entity<Address>()
                 .HasOne(p => p.City)
                 .WithMany();
+
+
 
             SetConfigurations(builder);
 
