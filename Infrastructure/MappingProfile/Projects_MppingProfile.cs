@@ -23,8 +23,14 @@ namespace Infrastructure.MappingProfile
 
             CreateMap<Project_Ideh, CreateProject_IdehDto>()
                 .ReverseMap();
+
+            //Detail Project_Ideh
             CreateMap<Project_Ideh, Project_IdehDetailDto>()
+            .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
        .ReverseMap();
+
+            //
+
             CreateMap<Project_Ideh, Project_IdehDto>()
 .ReverseMap();
 
@@ -43,11 +49,34 @@ namespace Infrastructure.MappingProfile
             CreateMap<Project_Incompleted, CreateProject_IncompletedDto>()
 .ReverseMap();
 
-            CreateMap<Project_Incompleted, Project_IncompletedDetailDto>()
-.ReverseMap();
+
             CreateMap<Project_Incompleted, Project_IncompletedDto>()
 .ReverseMap();
 
+            //Detail Project_Incompleted
+            CreateMap<Project_Incompleted, Project_IncompletedDetailDto>()
+            .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
+.ReverseMap();
+
+            CreateMap<Address, AddressDetailDto>()
+            .ForMember(dto => dto.UnitedName, entity => entity.MapFrom(p => p.City.United.Name))
+            .ForMember(dto => dto.UnitedId, entity => entity.MapFrom(p => p.City.United.Id))
+            .ForMember(dto => dto.CityName, entity => entity.MapFrom(p => p.City.Name))
+.ReverseMap();
+
+
+            CreateMap<LicenceRelProject, LicenceRelProjectDetailDto>()
+            .ForMember(dto => dto.LicenceName, entity => entity.MapFrom(p => p.Licence.Name))
+.ReverseMap();
+
+            CreateMap<FacilitiRelProject, FacilitiRelProjectDetailDto>()
+            .ForMember(dto => dto.FacilitiNatureName, entity => entity.MapFrom(p => p.FacilitiNature.Name))
+            .ForMember(dto => dto.FacilitiStatusName, entity => entity.MapFrom(p => p.FacilitiStatus.Name))
+.ReverseMap();
+
+            CreateMap<FundRelProject, FundRelProjectDetailDto>()
+            .ForMember(dto => dto.FundName, entity => entity.MapFrom(p => p.Fund.Name))
+.ReverseMap();
         }
     }
 }

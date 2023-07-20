@@ -45,12 +45,16 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
         public int NetPresentValue { get; set; }
         //آیا تاکنون در خصوص طرح مذکور تسهیلات دریافت نموده‌اید؟
         public bool HaveReceivedFaciliti { get; set; }
+        [Required]
         public CreateAddressApiDto Address { get; set; }
 
+        [Required]
         public List<CreateLicenceRelProjectApiDto> Licences { get; set; }
         //تسهیلات
+        [Required]
         public List<CreateFacilitiRelProjectApiDto> Facilitis { get; set; }
         //سرمایه گذاری ها
+        [Required]
         public List<CreateFundRelProjectApiDto> Funds { get; set; }
 
     }
