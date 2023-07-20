@@ -1,6 +1,5 @@
 ﻿using Application.Common;
 using Application.Interfaces.Contexts;
-using Application.Project_IdehService.Query;
 using AutoMapper;
 using Domain.ProjectEnums;
 using Domain.Projects;
@@ -68,12 +67,5 @@ namespace Application.Project_IncompletedService.Query
     {
         public int? Page { get; set; } = 1;
         public int? CountInPage { get; set; } = 10;
-    }
-    public class ResultSearchDto
-    {
-        public int Page { get; set; }
-        public int CountInPage { get; set; }
-        public int CountAllItems { get; set; }
-        public List<ProjectDto> Projects { get; set; }
     }
 }

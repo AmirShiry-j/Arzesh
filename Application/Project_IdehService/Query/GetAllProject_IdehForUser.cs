@@ -69,18 +69,4 @@ namespace Application.Project_IdehService.Query
         public int? Page { get; set; } = 1;
         public int? CountInPage { get; set; } = 10;
     }
-    public class ResultSearchDto
-    {
-        public int Page { get; set; }
-        public int CountInPage { get; set; }
-        public int CountAllItems { get; set; }
-        public List<ProjectDto> Projects { get; set; }
-    }
-    public class ProjectDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public Link Link { get; set; }
-
-    }
 }
