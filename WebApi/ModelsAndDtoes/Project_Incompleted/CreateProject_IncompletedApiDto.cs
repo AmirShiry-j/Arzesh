@@ -1,6 +1,7 @@
 ﻿using Domain.ProjectEnums;
 using Domain.ProjectNeeds;
 using System.ComponentModel.DataAnnotations;
+using WebApi.ModelsAndDtoes.Common.CreateDtoes;
 
 namespace WebApi.ModelsAndDtoes.Project_Incompleted
 {
@@ -60,58 +61,5 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
         public List<CreateFundRelProjectApiDto> Funds { get; set; }
 
     }
-    public class CreateAddressApiDto
-    {
-        //شهرستان
-        public int CityId { get; set; }
-        //شهر
-        public string TownName { get; set; }
-        //روستا/ شهرک صنعتی/ ناحیه صنعتی
-        public string Part_Village { get; set; }
-        //خیابان / پلاک
-        public string Street { get; set; }
-        //کد پستی
-        public string PostalCode { get; set; }
-        //
-    }
-    public class CreateLicenceRelProjectApiDto
-    {
-        public DateTime ValidityDate { get; set; }
-        //Licence
-        public int LicenceId { get; set; }
-    }
-    public class CreateFacilitiRelProjectApiDto
-    {
-        //نوع تسهیلات
-        [Range(1, 2)]
-        public FacilitiType FacilitiType { get; set; }
-        //وضعیت
-        public int FacilitiStatusId { get; set; }
-        //ماهیت
-        public int FacilitiNatureId { get; set; }
-        //تاریخ اخذ تسهیلات
-        public DateTime ReceivingDate { get; set; }
-        //تاریخ شروع اقساط
-        public DateTime InstallmentStartDate { get; set; }
-        //مدت بازپرداخت
-        public int RepaymentPeriod { get; set; }
-        //محل تامین - بانک
-        public string placeSupply_Bank { get; set; }
-        //درصد سود
-        [Range(0, 100)]
-        public int InterestRate { get; set; }
-        //نوع وثیقه
-        public string CollateralName { get; set; }
-    }
-    public class CreateFundRelProjectApiDto
-    {
-        public int FundId { get; set; }
-        //درصد پیشرفت فیزیکی
-        [Range(0, 100)]
-        public int PercenPhysicalProgress { get; set; }
-        //مبلغ هزینه شده
-        public int AmountSpent { get; set; }
-        //بر آورد کل مبلغ مورد نیاز
-        public int TotalAmountNeeded { get; set; }
-    }
+   
 }

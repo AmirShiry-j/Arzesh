@@ -1,4 +1,4 @@
-﻿namespace Application.Common
+﻿namespace Application.Common.SearchDtoes
 {
     public class ResultSearchDto
     {

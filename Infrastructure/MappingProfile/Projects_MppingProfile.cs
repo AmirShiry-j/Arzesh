@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Common.CreateDtoes;
+using Application.Common.SearchDtoes;
 
 namespace Infrastructure.MappingProfile
 {
@@ -19,17 +21,38 @@ namespace Infrastructure.MappingProfile
     {
         public Projects_MppingProfile()
         {
-
+            //Common
+            #region Common
             CreateMap<ResultDto, ResultDto<int>>().ReverseMap();
 
-            CreateMap<Project, CreateProject_IdehDto>()
-                .ReverseMap();
-            CreateMap<Project_Ideh, CreateProject_IdehDto>()
-                .ReverseMap();
+            CreateMap<Project, ProjectDto>()
+.ReverseMap();
+
             CreateMap<Address, CreateAddressDto>()
                 .ReverseMap();
 
+            CreateMap<LicenceRelProject, CreateLicenceRelProjectDto>()
+.ReverseMap();
+
+            CreateMap<FundRelProject, CreateFundRelProjectDto>()
+.ReverseMap();
+
+            CreateMap<FacilitiRelProject, CreateFacilitiRelProjectDto>()
+.ReverseMap();
+            #endregion
+            //
+
+            //Add Project_Ideh
+            #region Add Project_Ideh
+            CreateMap<Project, CreateProject_IdehDto>()
+                .ReverseMap();
+
+            CreateMap<Project_Ideh, CreateProject_IdehDto>()
+                .ReverseMap();
+            #endregion
+            //
             //Detail Project_Ideh
+            #region Detail Project_Ideh
             CreateMap<Project, Project_IdehDetailDto>()
             .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
        .ReverseMap();
@@ -43,36 +66,23 @@ namespace Infrastructure.MappingProfile
             .ForMember(dto => dto.CityName, entity => entity.MapFrom(p => p.City.Name))
 .ReverseMap();
 
-            CreateMap<Project, ProjectDto>()
-.ReverseMap();
+            #endregion
             // 
 
-
-
-            //Add 
+            //Add Project_Incompleted
+            #region Add Project_IncompletedDto
             CreateMap<Project, CreateProject_IncompletedDto>()
 .ReverseMap();
 
-            CreateMap<LicenceRelProject, CreateLicenceRelProjectDto>()
-.ReverseMap();
-
-            CreateMap<FundRelProject, CreateFundRelProjectDto>()
-.ReverseMap();
-
-            CreateMap<FacilitiRelProject, CreateFacilitiRelProjectDto>()
-.ReverseMap();
-
-
             CreateMap<Project_Incompleted, CreateProject_IncompletedDto>()
 .ReverseMap();
-
-
+            #endregion
+            //
             //Detail Project_Incompleted
+            #region Detail Project_Incompleted
             CreateMap<Project, Project_IncompletedDetailDto>()
             .ForMember(dto => dto.IndustryName, entity => entity.MapFrom(p => p.Industry.Name))
 .ReverseMap();
-
-
 
             CreateMap<LicenceRelProject, LicenceRelProjectDetailDto>()
             .ForMember(dto => dto.LicenceName, entity => entity.MapFrom(p => p.Licence.Name))
@@ -86,7 +96,8 @@ namespace Infrastructure.MappingProfile
             CreateMap<FundRelProject, FundRelProjectDetailDto>()
             .ForMember(dto => dto.FundName, entity => entity.MapFrom(p => p.Fund.Name))
 .ReverseMap();
-
+            #endregion
+            //
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Application.Common;
+using Application.Common.SearchDtoes;
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Domain.ProjectEnums;

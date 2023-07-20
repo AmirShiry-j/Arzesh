@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Common.CreateDtoes;
 
 namespace Application.Project_IncompletedService.Command
 {
@@ -127,56 +128,5 @@ namespace Application.Project_IncompletedService.Command
         public List<CreateFundRelProjectDto> Funds { get; set; }
 
     }
-    public class CreateAddressDto
-    {
-        public int UnitedId { get; set; }
-        //شهرستان
-        public int CityId { get; set; }
-        //شهر
-        public string TownName { get; set; }
-        //روستا/ شهرک صنعتی/ ناحیه صنعتی
-        public string Part_Village { get; set; }
-        //خیابان / پلاک
-        public string Street { get; set; }
-        //کد پستی
-        public string PostalCode { get; set; }
-        //
-    }
-    public class CreateLicenceRelProjectDto
-    {
-        public DateTime ValidityDate { get; set; }
-        //Licence
-        public int LicenceId { get; set; }
-    }
-    public class CreateFacilitiRelProjectDto
-    {
-        //نوع تسهیلات
-        public FacilitiType FacilitiType { get; set; }
-        //وضعیت
-        public int FacilitiStatusId { get; set; }
-        //ماهیت
-        public int FacilitiNatureId { get; set; }
-        //تاریخ اخذ تسهیلات
-        public DateTime ReceivingDate { get; set; }
-        //تاریخ شروع اقساط
-        public DateTime InstallmentStartDate { get; set; }
-        //مدت بازپرداخت
-        public int RepaymentPeriod { get; set; }
-        //محل تامین - بانک
-        public string placeSupply_Bank { get; set; }
-        //درصد سود
-        public int InterestRate { get; set; }
-        //نوع وثیقه
-        public string CollateralName { get; set; }
-    }
-    public class CreateFundRelProjectDto
-    {
-        public int FundId { get; set; }
-        //درصد پیشرفت فیزیکی
-        public int PercenPhysicalProgress { get; set; }
-        //مبلغ هزینه شده
-        public int AmountSpent { get; set; }
-        //بر آورد کل مبلغ مورد نیاز
-        public int TotalAmountNeeded { get; set; }
-    }
+
 }

@@ -72,37 +72,37 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="ProjectId"></param>
         /// <returns></returns>
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [HttpGet("{ProjectId}")]
-        public async Task<IActionResult> Get(int ProjectId)
-        {
-            //Get UserId
-            var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[HttpGet("{ProjectId}")]
+        //public async Task<IActionResult> Get(int ProjectId)
+        //{
+        //    //Get UserId
+        //    var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
 
-            //Get data from service
-            var resultService = await _getProject_IdehById.Execute(ProjectId, userId);
+        //    //Get data from service
+        //    var resultService = await _getProject_IdehById.Execute(ProjectId, userId);
 
-            if (resultService.IsSuccess)
-            {
-                ////HATEOAS links
-                //For Self
-                resultService.Data.Links = new List<Link>
-                {
-                    new Link
-                    {
-                        For="Delete",
-                        HttpMethod=HttpMethod.Delete.ToString(),
-                        Url=Url.Action("Delete","Project",new {ProjectId=ProjectId },Request.Scheme)
-                    },
-                };
+        //    if (resultService.IsSuccess)
+        //    {
+        //        ////HATEOAS links
+        //        //For Self
+        //        resultService.Data.Links = new List<Link>
+        //        {
+        //            new Link
+        //            {
+        //                For="Delete",
+        //                HttpMethod=HttpMethod.Delete.ToString(),
+        //                Url=Url.Action("Delete","Project",new {ProjectId=ProjectId },Request.Scheme)
+        //            },
+        //        };
 
-                return Ok(resultService.Data);
-            }
-            else
-            {
-                return BadRequest(resultService.Message);
-            }
-        }
+        //        return Ok(resultService.Data);
+        //    }
+        //    else
+        //    {
+        //        return BadRequest(resultService.Message);
+        //    }
+        //}
 
         /// <summary>
         /// ثبت یک پروژه (ایده)

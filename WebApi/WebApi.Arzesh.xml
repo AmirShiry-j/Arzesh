@@ -118,13 +118,6 @@
             <param name="SearchDto"></param>
             <returns></returns>
         </member>
-        <member name="M:WebApi.Controllers.Project_IdehController.Get(System.Int32)">
-            <summary>
-            برگردوندن اطلاعات یک پروژه (ایده) با آیدی
-            </summary>
-            <param name="ProjectId"></param>
-            <returns></returns>
-        </member>
         <member name="M:WebApi.Controllers.Project_IdehController.Post(WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto)">
             <summary>
             ثبت یک پروژه (ایده)
@@ -137,13 +130,6 @@
             برگردوندن لیست پروژه ها (نیمه تمام)
             </summary>
             <param name="SearchDto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WebApi.Controllers.Project_IncompletedController.Get(System.Int32)">
-            <summary>
-            برگردوندن اطلاعات یک پروژه (نیمه تمام) با آیدی
-            </summary>
-            <param name="ProjectId"></param>
             <returns></returns>
         </member>
         <member name="M:WebApi.Controllers.Project_IncompletedController.Post(WebApi.ModelsAndDtoes.Project_Incompleted.CreateProject_IncompletedApiDto)">
