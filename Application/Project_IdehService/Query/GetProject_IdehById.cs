@@ -89,6 +89,7 @@ namespace Application.Project_IdehService.Query
         public string WhatTopicsNeedParticipate { get; set; }
         public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
+        public DateTime TimeCreate { get; set; }
         public AddressDetailDto Address { get; set; }
         public List<Link> Links { get; set; }
 

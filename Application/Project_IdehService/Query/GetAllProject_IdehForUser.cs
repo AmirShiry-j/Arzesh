@@ -37,7 +37,7 @@ namespace Application.Project_IdehService.Query
             //get projects from db
             var projects = _dbContext.Projects
                 .Where(prProject)
-                                .OrderByDescending(p => p.Id)
+                                .OrderByDescending(p => p.TimeCreate)
                 //For Pagination
                 .Skip((SearchDto.Page.Value - 1) * SearchDto.CountInPage.Value)
                 .Take(SearchDto.CountInPage.Value)

@@ -1,4 +1,5 @@
-﻿using Domain.ProjectNeeds;
+﻿using Domain.Common;
+using Domain.ProjectNeeds;
 using Domain.Users;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Projects
 {
-    public class Project
+    public class Project : BaseProps
     {
         public int Id { get; set; }
         //نام پروژه
@@ -42,6 +43,7 @@ namespace Domain.Projects
         public ICollection<FacilitiRelProject> Facilitis { get; set; }
         //سرمایه گذاری ها
         public ICollection<FundRelProject> Funds { get; set; }
+        public DateTime TimeCreate { get; set; }
     }
 
 }

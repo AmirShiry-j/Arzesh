@@ -111,7 +111,8 @@ namespace Persistence.Contexts
 
             //Projects
             builder.ApplyConfiguration(new ProjectTypeConfig());
-
+            builder.ApplyConfiguration(new ProjectConfig());
+            
             //Address
             builder.ApplyConfiguration(new UnitedConfig());
 
