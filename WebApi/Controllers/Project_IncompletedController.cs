@@ -58,9 +58,9 @@ namespace WebApi.Controllers
 
                 project.Link = new Link
                 {
-                    For = "Details",
-                    HttpMethod = HttpMethod.Get.ToString(),
-                    Url = Url.Action(nameof(Get), "Project_Incompleted", new { ProjectId = project.Id }, Request.Scheme)
+                    For = "Delete",
+                    HttpMethod = HttpMethod.Delete.ToString(),
+                    Url = Url.Action("Delete", "Project", new { ProjectId = project.Id }, Request.Scheme)
                 };
             }
 
@@ -124,7 +124,7 @@ namespace WebApi.Controllers
             if (resultService.IsSuccess)
             {
                 //HATEOAS links
-                string url = Url.Action(nameof(Get), "Project_Incompleted", new { ProjectId = resultService.Data }, Request.Scheme);
+                string url = "";
 
                 return Created(url, "پروژه (نیمه تمام) شما ثبت گردید");
             }
