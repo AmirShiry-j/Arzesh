@@ -34,64 +34,49 @@ namespace Application.Project_IncompletedService.Command
         }
         public async Task<ResultDto<int>> Execute(CreateProject_IncompletedDto ProjectDto, string UserId)
         {
+            //Map
+            var newProject = _mapper.Map<Project>(ProjectDto);
+            newProject.ProjectTypeId = (int)ProjectTypeEnum.Incompleted;
+            newProject.UserId = UserId;
+            //
+            newProject.P_Incompleted = _mapper.Map<Project_Incompleted>(ProjectDto);
+
+            //Industry
+            var resultCheckIndustry = await _validateService.CheckIndustry((int)newProject.IndustryId);
+            if (!resultCheckIndustry.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
+
+            ////Licence
+            var resultCheckLicences = await _validateService.CheckLicences(newProject.Licences.ToList());
+            if (!resultCheckLicences.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckLicences);
+
+            ////Faciliti
+            var resultCheckFacilitis = await _validateService.CheckFacilitis(newProject.Facilitis.ToList());
+            if (!resultCheckFacilitis.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckFacilitis);
+
+
+            ////Fund
+            var resultCheckFunds = await _validateService.CheckFunds(newProject.Funds.ToList());
+            if (!resultCheckFunds.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckFunds);
+
+            ////Address
+            var resultCheckAddress = await _validateService.CheckAddress(newProject.Address);
+            if (!resultCheckAddress.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckAddress);
+
+            //save in db
+            _dbContext.Projects.Add(newProject);
+            _dbContext.SaveChanges();
+
+
             return new ResultDto<int>
             {
-
+                IsSuccess = true,
+                Data = newProject.Id
             };
-
-            ////Map
-            //var newProject = _mapper.Map<Project_Incompleted>(ProjectDto);
-            //newProject.UserId = UserId;
-
-            ////Industry
-            //var resultCheckIndustry = await _validateService.CheckIndustry((int)newProject.IndustryId);
-            //if (!resultCheckIndustry.IsSuccess)
-            //    return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
-
-            //////Licence
-            //var resultCheckLicences = await _validateService.CheckLicences(newProject.Licences.ToList());
-            //if (!resultCheckLicences.IsSuccess)
-            //    return _mapper.Map<ResultDto<int>>(resultCheckLicences);
-            //newProject.Licences.ToList().ForEach(p =>
-            //{
-            //    p.ProjectType = ProjectType.Incompleted;
-            //});
-
-            //////Faciliti
-            //var resultCheckFacilitis = await _validateService.CheckFacilitis(newProject.Facilitis.ToList());
-            //if (!resultCheckFacilitis.IsSuccess)
-            //    return _mapper.Map<ResultDto<int>>(resultCheckFacilitis);
-            //newProject.Facilitis.ToList().ForEach(p =>
-            //{
-            //    p.ProjectType = ProjectType.Incompleted;
-            //});
-
-
-            //////Fund
-            //var resultCheckFunds = await _validateService.CheckFunds(newProject.Funds.ToList());
-            //if (!resultCheckFunds.IsSuccess)
-            //    return _mapper.Map<ResultDto<int>>(resultCheckFunds);
-            //newProject.Funds.ToList().ForEach(p =>
-            //{
-            //    p.ProjectType = ProjectType.Incompleted;
-            //});
-
-            //////Address
-            //var resultCheckAddress = await _validateService.CheckAddress(newProject.Address);
-            //if (!resultCheckAddress.IsSuccess)
-            //    return _mapper.Map<ResultDto<int>>(resultCheckAddress);
-            //newProject.Address.ProjectType = ProjectType.Incompleted;
-
-            ////save in db
-            //_dbContext.P_Incompleteds.Add(newProject);
-            //_dbContext.SaveChanges();
-
-
-            //return new ResultDto<int>
-            //{
-            //    IsSuccess = true,
-            //    Data = newProject.Id
-            //};
         }
     }
     public class CreateProject_IncompletedDto

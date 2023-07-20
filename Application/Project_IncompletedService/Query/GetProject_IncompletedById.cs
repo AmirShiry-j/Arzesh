@@ -32,54 +32,50 @@ namespace Application.Project_IncompletedService.Query
 
         public async Task<ResultDto<Project_IncompletedDetailDto>> Execute(int Id, string UserId)
         {
+            //get Incompleted from db
+            var project = _dbContext.Projects.Where(p => p.Id.Equals(Id) && p.ProjectTypeId.Equals((int)ProjectTypeEnum.Incompleted))
+                .Include(p => p.Industry)
+                .Include(p => p.Address)
+                .ThenInclude(p => p.City)
+                .ThenInclude(p => p.United)
+                .Include(p => p.Licences)
+                .ThenInclude(p => p.Licence)
+                .Include(p => p.Facilitis)
+                .ThenInclude(p => p.FacilitiNature)
+                .Include(p => p.Facilitis)
+                .ThenInclude(p => p.FacilitiStatus)
+                .Include(p => p.Funds)
+                .ThenInclude(p => p.Fund)
+                .FirstOrDefault();
+
+
+            //check is exist
+            if (project == null)
+            {
+                return new ResultDto<Project_IncompletedDetailDto>
+                {
+                    IsSuccess = false,
+                    Message = "پروژه ای با آیدی ارسالی موجود نیست"
+                };
+            }
+
+            //check is for user
+            if (!project.UserId.Equals(UserId))
+            {
+                return new ResultDto<Project_IncompletedDetailDto>
+                {
+                    IsSuccess = false,
+                    Message = "این آیدی پروژه متعلق به شما نیست"
+                };
+            }
+
+            var dto = _mapper.Map<Project_IncompletedDetailDto>(project);
+
             return new ResultDto<Project_IncompletedDetailDto>
             {
-
+                IsSuccess = true,
+                Data = dto
             };
-            ////get Incompleted from db
-            //var project = _dbContext.P_Incompleteds.Where(p => p.Id.Equals(Id))
-            //    .Include(p => p.Industry)
-            //    .Include(p => p.Address)
-            //    .ThenInclude(p=>p.City)
-            //    .ThenInclude(p=>p.United)
-            //    .Include(p => p.Licences)
-            //    .ThenInclude(p => p.Licence)
-            //    .Include(p => p.Facilitis)
-            //    .ThenInclude(p => p.FacilitiNature)
-            //    .Include(p => p.Facilitis)
-            //    .ThenInclude(p => p.FacilitiStatus)
-            //    .Include(p => p.Funds)
-            //    .ThenInclude(p => p.Fund)
-            //    .FirstOrDefault();
-
-
-            ////check is exist
-            //if (project == null)
-            //{
-            //    return new ResultDto<Project_IncompletedDetailDto>
-            //    {
-            //        IsSuccess = false,
-            //        Message = "پروژه ای با آیدی ارسالی موجود نیست"
-            //    };
-            //}
-
-            ////check is for user
-            //if (!project.UserId.Equals(UserId))
-            //{
-            //    return new ResultDto<Project_IncompletedDetailDto>
-            //    {
-            //        IsSuccess = false,
-            //        Message = "این آیدی پروژه متعلق به شما نیست"
-            //    };
-            //}
-
-            //var dto = _mapper.Map<Project_IncompletedDetailDto>(project);
-
-            //return new ResultDto<Project_IncompletedDetailDto>
-            //{
-            //    IsSuccess = true,
-            //    Data = dto
-            //};
 
         }
     }
@@ -105,6 +101,7 @@ namespace Application.Project_IncompletedService.Query
         public int NetPresentValue { get; set; }
         public bool HaveReceivedFaciliti { get; set; }
         public AddressDetailDto Address { get; set; }
+        public DateTime TimeCreate { get; set; }
 
 
         //مجوز ها

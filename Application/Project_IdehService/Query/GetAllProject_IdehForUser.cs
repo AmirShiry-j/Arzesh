@@ -1,6 +1,7 @@
 ﻿using Application.Common;
 using Application.Interfaces.Contexts;
 using AutoMapper;
+using Domain.ProjectEnums;
 using Domain.Projects;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace Application.Project_IdehService.Query
             var prProject = PredicateBuilder.True<Project>();
 
             prProject = prProject.And(x => x.UserId.Equals(UserId));
+            prProject = prProject.And(x => x.ProjectTypeId.Equals((int)ProjectTypeEnum.Ideh));
 
             //get projects from db
             var projects = _dbContext.Projects

@@ -33,7 +33,7 @@ namespace Application.Project_IdehService.Query
         public async Task<ResultDto<Project_IdehDetailDto>> Execute(int Id, string UserId)
         {
             //get ideh from db
-            var project = _dbContext.Projects.Where(p => p.Id.Equals(Id))
+            var project = _dbContext.Projects.Where(p => p.Id.Equals(Id)&&p.ProjectTypeId.Equals((int)ProjectTypeEnum.Ideh))
                 .Include(p => p.Industry)
                 .Include(p => p.P_Ideh)
                 .Include(p => p.Address)

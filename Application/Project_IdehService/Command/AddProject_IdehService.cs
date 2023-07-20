@@ -33,14 +33,14 @@ namespace Application.Project_IdehService.Command
             _mapper = mapper;
             _validateService = validateService;
         }
-        public async Task<ResultDto<int>> Execute(CreateProject_IdehDto IdehDto, string UserId)
+        public async Task<ResultDto<int>> Execute(CreateProject_IdehDto ProjectDto, string UserId)
         {
             //Map
-            var newProject = _mapper.Map<Project>(IdehDto);
+            var newProject = _mapper.Map<Project>(ProjectDto);
             newProject.ProjectTypeId = (int)ProjectTypeEnum.Ideh;
             newProject.UserId = UserId;
             //
-            newProject.P_Ideh = _mapper.Map<Project_Ideh>(IdehDto);
+            newProject.P_Ideh = _mapper.Map<Project_Ideh>(ProjectDto);
 
             //Address
             var resultCheckAddress = await _validateService.CheckAddress(newProject.Address);
