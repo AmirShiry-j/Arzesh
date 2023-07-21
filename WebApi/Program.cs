@@ -11,6 +11,7 @@ using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
 using Application.Project_Service.Command;
+using Application.ProjectTypeService.Query;
 using Application.TokenService;
 using Application.UserService;
 using Domain.Users;
@@ -190,6 +191,9 @@ builder.Services.AddScoped<IGetAllProject_IncompletedForUser, GetAllProject_Inco
 
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();
+
+//ProjectType Services
+builder.Services.AddScoped<IGetProjectTypesService, GetProjectTypesService>();
 
 //Licence Services
 builder.Services.AddScoped<IGetLicencesService, GetLicencesService>();
