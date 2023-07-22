@@ -88,7 +88,7 @@ namespace Application.Project_Service.Query
                 .Include(p => p.ProjectType)
                 .Include(p => p.Address)
                 .ThenInclude(p => p.City)
-                .ThenInclude(p => p.United)
+                .ThenInclude(p => p.United) 
                 .Where(prProject)
                 .OrderByDescending(p => p.TimeCreate)
                 //For Pagination

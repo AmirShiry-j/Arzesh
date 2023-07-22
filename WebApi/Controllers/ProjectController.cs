@@ -21,16 +21,19 @@ namespace WebApi.Controllers
         private readonly IDeleteProjectService _deleteProjectService;
         private readonly IGetAllProjectForUser _getAllProjectForUser;
         private readonly IGetProjectsWithSearch _getProjectsWithSearch;
+        private readonly IGetProjectById _getProjectById;
         private readonly IMapper _mapper;
 
         public ProjectController(IDeleteProjectService deleteProjectService,
             IGetAllProjectForUser getAllProjectForUser,
             IGetProjectsWithSearch getProjectsWithSearch,
+            IGetProjectById getProjectById,
             IMapper mapper)
         {
             _deleteProjectService = deleteProjectService;
             _getAllProjectForUser = getAllProjectForUser;
             _getProjectsWithSearch = getProjectsWithSearch;
+            _getProjectById = getProjectById;
             _mapper = mapper;
         }
 
@@ -56,11 +59,32 @@ namespace WebApi.Controllers
                 {
                     For = "Details",
                     HttpMethod = HttpMethod.Get.ToString(),
-                    Url = Url.Action("Get", "Project", new { ProjectId = project.Id }, Request.Scheme)
+                    Url = Url.Action(nameof(Get), "Project", new { ProjectId = project.Id }, Request.Scheme)
                 };
             }
 
             return Ok(resultService.Data);
+        }
+
+        /// <summary>
+        /// بر گردوندن جزئیات اطلاعات یک پروژه
+        /// </summary>
+        /// <param name="ProjectId"></param>
+        /// <returns></returns>
+        [HttpGet("{ProjectId}")]
+        public async Task<IActionResult> Get(int ProjectId)
+        {
+            //Get data from service
+            var resultService = await _getProjectById.Execute(ProjectId);
+
+            if (resultService.IsSuccess)
+            {
+                return Ok(resultService.Data);
+            }
+            else
+            {
+                return BadRequest(resultService.Message);
+            }
         }
 
 
@@ -80,7 +104,6 @@ namespace WebApi.Controllers
             var resultService = await _getAllProjectForUser.Execute(userId);
 
             //HATEAOS
-
             foreach (var project in resultService.Data)
             {
 

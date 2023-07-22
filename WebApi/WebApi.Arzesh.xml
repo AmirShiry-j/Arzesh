@@ -111,6 +111,13 @@
             <param name="SearchProjectApiDto"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.ProjectController.Get(System.Int32)">
+            <summary>
+            بر گردوندن جزئیات اطلاعات یک پروژه
+            </summary>
+            <param name="ProjectId"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.ProjectController.GetUserProjects">
             <summary>
             بر گردوندن همه پروژه های ایجاد شده توسط کاربر لاگین شده (Auth)

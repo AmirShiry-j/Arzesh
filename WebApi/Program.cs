@@ -181,6 +181,7 @@ builder.Services.AddScoped<IValidateService, ValidateService>();
 builder.Services.AddScoped<IDeleteProjectService, DeleteProjectService>();
 builder.Services.AddScoped<IGetAllProjectForUser, GetAllProjectForUser>();
 builder.Services.AddScoped<IGetProjectsWithSearch, GetProjectsWithSearch>();
+builder.Services.AddScoped<IGetProjectById, GetProjectById>();
 
 //Project_Ideh services
 builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();
