@@ -11,6 +11,7 @@ using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
 using Application.Project_Service.Command;
+using Application.Project_Service.Query;
 using Application.ProjectTypeService.Query;
 using Application.TokenService;
 using Application.UserService;
@@ -178,6 +179,7 @@ builder.Services.AddScoped<IValidateService, ValidateService>();
 
 //Project services
 builder.Services.AddScoped<IDeleteProjectService, DeleteProjectService>();
+builder.Services.AddScoped<IGetAllProjectForUser, GetAllProjectForUser>();
 
 //Project_Ideh services
 builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();

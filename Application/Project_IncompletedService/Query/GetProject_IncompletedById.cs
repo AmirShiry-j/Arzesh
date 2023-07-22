@@ -34,6 +34,7 @@ namespace Application.Project_IncompletedService.Query
         {
             //get Incompleted from db
             var project = _dbContext.Projects.Where(p => p.Id.Equals(Id) && p.ProjectTypeId.Equals((int)ProjectTypeEnum.Incompleted))
+                .Include(p => p.P_Incompleted)
                 .Include(p => p.Industry)
                 .Include(p => p.Address)
                 .ThenInclude(p => p.City)

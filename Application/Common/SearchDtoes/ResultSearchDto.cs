@@ -1,4 +1,6 @@
-﻿namespace Application.Common.SearchDtoes
+﻿using Domain.ProjectEnums;
+
+namespace Application.Common.SearchDtoes
 {
     public class ResultSearchDto
     {
@@ -11,6 +13,8 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public ProjectTypeEnum ProjectType { get; set; }
+        public DateTime TimeCreate { get; set; }
         public Link Link { get; set; }
 
     }

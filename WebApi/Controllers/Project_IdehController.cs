@@ -38,34 +38,34 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="SearchDto"></param>
         /// <returns></returns>
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] SearchProject_IdehApiDto SearchDto)
-        {
-            //Get UserId
-            var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[HttpGet]
+        //public async Task<IActionResult> Get([FromQuery] SearchProject_IdehApiDto SearchDto)
+        //{
+        //    //Get UserId
+        //    var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
 
-            //map
-            var inputService = _mapper.Map<SearchProject_IdehDto>(SearchDto);
+        //    //map
+        //    var inputService = _mapper.Map<SearchProject_IdehDto>(SearchDto);
 
-            //Get data from service
-            var resultService = await _getAllProject_IdehForUser.Execute(inputService, userId);
+        //    //Get data from service
+        //    var resultService = await _getAllProject_IdehForUser.Execute(inputService, userId);
 
-            //HATEAOS
+        //    //HATEAOS
 
-            foreach (var project in resultService.Data.Projects)
-            {
+        //    foreach (var project in resultService.Data.Projects)
+        //    {
 
-                project.Link = new Link
-                {
-                    For = "Delete",
-                    HttpMethod = HttpMethod.Delete.ToString(),
-                    Url = Url.Action("Delete", "Project", new { ProjectId = project.Id }, Request.Scheme)
-                };
-            }
+        //        project.Link = new Link
+        //        {
+        //            For = "Delete",
+        //            HttpMethod = HttpMethod.Delete.ToString(),
+        //            Url = Url.Action("Delete", "Project", new { ProjectId = project.Id }, Request.Scheme)
+        //        };
+        //    }
 
-            return Ok(resultService.Data);
-        }
+        //    return Ok(resultService.Data);
+        //}
 
         /// <summary>
         /// برگردوندن اطلاعات یک پروژه (ایده) با آیدی
