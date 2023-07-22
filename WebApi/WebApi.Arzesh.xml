@@ -104,9 +104,16 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:WebApi.Controllers.ProjectController.Get">
+        <member name="M:WebApi.Controllers.ProjectController.Get(WebApi.ModelsAndDtoes.Project.SearchProjectApiDto)">
             <summary>
-            بر گردوندن همه پروژه های ایجاد شده توسط کاربر (Auth)
+            بر گردوندن پروژه ها
+            </summary>
+            <param name="SearchProjectApiDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProjectController.GetUserProjects">
+            <summary>
+            بر گردوندن همه پروژه های ایجاد شده توسط کاربر لاگین شده (Auth)
             </summary>
             <returns></returns>
         </member>

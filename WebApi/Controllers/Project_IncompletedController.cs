@@ -19,53 +19,17 @@ namespace WebApi.Controllers
     {
         private readonly IAddProject_IncompletedService _addProject_IncompletedService;
         private readonly IGetProject_IncompletedById _getProject_IncompletedById;
-        private readonly IGetAllProject_IncompletedForUser _getAllProject_IncompletedForUser;
         private readonly IMapper _mapper;
 
         public Project_IncompletedController(IAddProject_IncompletedService addProject_IncompletedService,
             IGetProject_IncompletedById getProject_IncompletedById,
-            IGetAllProject_IncompletedForUser getAllProject_IncompletedForUser,
             IMapper mapper)
         {
             _addProject_IncompletedService = addProject_IncompletedService;
-            _getAllProject_IncompletedForUser = getAllProject_IncompletedForUser;
             _getProject_IncompletedById = getProject_IncompletedById;
             _mapper = mapper;
         }
 
-        /// <summary>
-        /// برگردوندن لیست پروژه ها (نیمه تمام)
-        /// </summary>
-        /// <param name="SearchDto"></param>
-        /// <returns></returns>
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        //[HttpGet]
-        //public async Task<IActionResult> Get([FromQuery] SearchProject_IncompletedApiDto SearchDto)
-        //{
-        //    //Get UserId
-        //    var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
-
-        //    //map
-        //    var inputService = _mapper.Map<SearchProject_IncompletedDto>(SearchDto);
-
-        //    //Get data from service
-        //    var resultService = await _getAllProject_IncompletedForUser.Execute(inputService, userId);
-
-        //    //HATEAOS
-
-        //    foreach (var project in resultService.Data.Projects)
-        //    {
-
-        //        project.Link = new Link
-        //        {
-        //            For = "Delete",
-        //            HttpMethod = HttpMethod.Delete.ToString(),
-        //            Url = Url.Action("Delete", "Project", new { ProjectId = project.Id }, Request.Scheme)
-        //        };
-        //    }
-
-        //    return Ok(resultService.Data);
-        //}
 
         /// <summary>
         /// برگردوندن اطلاعات یک پروژه (نیمه تمام) با آیدی

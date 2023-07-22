@@ -3,9 +3,11 @@ using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
+using Application.Project_Service.Query;
 using AutoMapper;
 using Domain.Projects;
 using WebApi.ModelsAndDtoes.Common.CreateDtoes;
+using WebApi.ModelsAndDtoes.Project;
 using WebApi.ModelsAndDtoes.Project_Ideh;
 using WebApi.ModelsAndDtoes.Project_Incompleted;
 
@@ -33,21 +35,22 @@ namespace WebApi.Tools.AutoMapper
 
             //Add Project_Ideh
             #region Add Project_Ideh
-            CreateMap<SearchProject_IdehDto, SearchProject_IdehApiDto>()
-.ReverseMap();
-
             CreateMap<CreateProject_IdehDto, CreateProject_IdehApiDto>()
                 .ReverseMap();
             #endregion
             //
 
             //Add Project_Incompleted
-            #region Add Project_IncompletedDto
-            CreateMap<SearchProject_IncompletedDto, SearchProject_IncompletedApiDto>()
-.ReverseMap();
-
+            #region Add Project_Incompleted
             CreateMap<CreateProject_IncompletedDto, CreateProject_IncompletedApiDto>()
     .ReverseMap();
+            #endregion
+            //
+
+            //Project
+            #region Add Project
+            CreateMap<SearchProjectDto, SearchProjectApiDto>()
+.ReverseMap();
             #endregion
             //
         }

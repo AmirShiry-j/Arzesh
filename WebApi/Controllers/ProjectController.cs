@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.ModelsAndDtoes.Project;
 using WebApi.ModelsAndDtoes.Project_Ideh;
 
 namespace WebApi.Controllers
@@ -19,21 +20,58 @@ namespace WebApi.Controllers
     {
         private readonly IDeleteProjectService _deleteProjectService;
         private readonly IGetAllProjectForUser _getAllProjectForUser;
+        private readonly IGetProjectsWithSearch _getProjectsWithSearch;
+        private readonly IMapper _mapper;
 
         public ProjectController(IDeleteProjectService deleteProjectService,
-            IGetAllProjectForUser getAllProjectForUser)
+            IGetAllProjectForUser getAllProjectForUser,
+            IGetProjectsWithSearch getProjectsWithSearch,
+            IMapper mapper)
         {
             _deleteProjectService = deleteProjectService;
-            _getAllProjectForUser= getAllProjectForUser;
+            _getAllProjectForUser = getAllProjectForUser;
+            _getProjectsWithSearch = getProjectsWithSearch;
+            _mapper = mapper;
         }
 
         /// <summary>
-        /// بر گردوندن همه پروژه های ایجاد شده توسط کاربر (Auth)
+        /// بر گردوندن پروژه ها
+        /// </summary>
+        /// <param name="SearchProjectApiDto"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] SearchProjectApiDto SearchProjectApiDto)
+        {
+            //Map
+            var inputService = _mapper.Map<SearchProjectDto>(SearchProjectApiDto);
+
+            //Get data from service
+            var resultService = await _getProjectsWithSearch.Execute(inputService);
+
+            //HATEAOS
+            foreach (var project in resultService.Data.Projects)
+            {
+
+                project.Link = new Link
+                {
+                    For = "Details",
+                    HttpMethod = HttpMethod.Get.ToString(),
+                    Url = Url.Action("Get", "Project", new { ProjectId = project.Id }, Request.Scheme)
+                };
+            }
+
+            return Ok(resultService.Data);
+        }
+
+
+        /// <summary>
+        /// بر گردوندن همه پروژه های ایجاد شده توسط کاربر لاگین شده (Auth)
         /// </summary>
         /// <returns></returns>
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpGet("~/api/v{version:apiVersion}/[controller]/[action]/")]
+        //[HttpGet]
+        public async Task<IActionResult> GetUserProjects()
         {
             //Get UserId
             var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;

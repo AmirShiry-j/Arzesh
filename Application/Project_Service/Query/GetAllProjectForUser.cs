@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.ProjectEnums;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Project_Service.Query
 {
@@ -33,9 +34,10 @@ namespace Application.Project_Service.Query
         {
             //get projects from db
             var dtoProjects = _dbContext.Projects
+                .Include(p => p.Industry)
                 .Where(p => p.UserId.Equals(UserId))
                                 .OrderByDescending(p => p.TimeCreate)
-                .Select(p => new ProjectDto { Id = p.Id, Name = p.Name, ProjectType = (ProjectTypeEnum)p.ProjectTypeId, TimeCreate = p.TimeCreate })
+                .Select(p => new ProjectDto { Id = p.Id, Name = p.Name, ProjectTypeId = p.ProjectTypeId, ProjectTypeName = p.Industry.Name, TimeCreate = p.TimeCreate })
                 .ToList();
 
             return new ResultDto<List<ProjectDto>>

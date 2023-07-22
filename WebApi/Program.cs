@@ -180,16 +180,15 @@ builder.Services.AddScoped<IValidateService, ValidateService>();
 //Project services
 builder.Services.AddScoped<IDeleteProjectService, DeleteProjectService>();
 builder.Services.AddScoped<IGetAllProjectForUser, GetAllProjectForUser>();
+builder.Services.AddScoped<IGetProjectsWithSearch, GetProjectsWithSearch>();
 
 //Project_Ideh services
 builder.Services.AddScoped<IAddProject_IdehService, AddProject_IdehService>();
 builder.Services.AddScoped<IGetProject_IdehById, GetProject_IdehById>();
-builder.Services.AddScoped<IGetAllProject_IdehForUser, GetAllProject_IdehForUser>();
 
 //Project_Incompleted services
 builder.Services.AddScoped<IAddProject_IncompletedService, AddProject_IncompletedService>();
 builder.Services.AddScoped<IGetProject_IncompletedById, GetProject_IncompletedById>();
-builder.Services.AddScoped<IGetAllProject_IncompletedForUser, GetAllProject_IncompletedForUser>();
 
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();

@@ -18,54 +18,18 @@ namespace WebApi.Controllers
     {
         private readonly IAddProject_IdehService _addProject_IdehService;
         private readonly IGetProject_IdehById _getProject_IdehById;
-        private readonly IGetAllProject_IdehForUser _getAllProject_IdehForUser;
         private readonly IMapper _mapper;
 
         public Project_IdehController(IAddProject_IdehService addProject_IdehService,
             IGetProject_IdehById getProject_IdehById,
-            IGetAllProject_IdehForUser getAllProject_IdehForUser,
             IMapper mapper)
         {
             _addProject_IdehService = addProject_IdehService;
-            _getAllProject_IdehForUser = getAllProject_IdehForUser;
             _getProject_IdehById = getProject_IdehById;
             _mapper = mapper;
         }
 
 
-        /// <summary>
-        /// برگردوندن لیست پروژه ها (ایده)
-        /// </summary>
-        /// <param name="SearchDto"></param>
-        /// <returns></returns>
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        //[HttpGet]
-        //public async Task<IActionResult> Get([FromQuery] SearchProject_IdehApiDto SearchDto)
-        //{
-        //    //Get UserId
-        //    var userId = User.Claims?.FirstOrDefault(p => p.Type == "UserId")?.Value;
-
-        //    //map
-        //    var inputService = _mapper.Map<SearchProject_IdehDto>(SearchDto);
-
-        //    //Get data from service
-        //    var resultService = await _getAllProject_IdehForUser.Execute(inputService, userId);
-
-        //    //HATEAOS
-
-        //    foreach (var project in resultService.Data.Projects)
-        //    {
-
-        //        project.Link = new Link
-        //        {
-        //            For = "Delete",
-        //            HttpMethod = HttpMethod.Delete.ToString(),
-        //            Url = Url.Action("Delete", "Project", new { ProjectId = project.Id }, Request.Scheme)
-        //        };
-        //    }
-
-        //    return Ok(resultService.Data);
-        //}
 
         /// <summary>
         /// برگردوندن اطلاعات یک پروژه (ایده) با آیدی

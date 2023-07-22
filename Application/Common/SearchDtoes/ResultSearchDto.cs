@@ -13,7 +13,8 @@ namespace Application.Common.SearchDtoes
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ProjectTypeEnum ProjectType { get; set; }
+        public int ProjectTypeId { get; set; }
+        public string ProjectTypeName { get; set; }
         public DateTime TimeCreate { get; set; }
         public Link Link { get; set; }
 
