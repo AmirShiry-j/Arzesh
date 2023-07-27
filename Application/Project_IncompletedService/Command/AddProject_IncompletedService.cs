@@ -47,6 +47,14 @@ namespace Application.Project_IncompletedService.Command
             if (!resultCheckIndustry.IsSuccess)
                 return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
 
+            //RentType
+            var resultCheckRentType = await _validateService.CheckRentType((int)newProject.P_Incompleted.RentTypeId, newProject.P_Incompleted.PlaceOfImplementation);
+            if (!resultCheckRentType.IsSuccess)
+                return _mapper.Map<ResultDto<int>>(resultCheckRentType);
+            else
+                if (newProject.P_Incompleted.PlaceOfImplementation != PlaceOfImplementation.Rent)
+                newProject.P_Incompleted.RentTypeId = null;
+
             ////Licence
             var resultCheckLicences = await _validateService.CheckLicences(newProject.Licences.ToList());
             if (!resultCheckLicences.IsSuccess)

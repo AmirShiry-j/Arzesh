@@ -2,6 +2,7 @@
 using Application.Interfaces.Contexts;
 using Application.Project_IdehService.Command;
 using AutoMapper;
+using Domain.ProjectEnums;
 using Domain.ProjectNeeds;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Application.CommonServices.Query
     public interface IValidateService
     {
         Task<ResultDto> CheckIndustry(int Id);
+        Task<ResultDto> CheckRentType(int Id, PlaceOfImplementation PlaceOfImplementation);
         Task<ResultDto> CheckAddress(Address Address);
         Task<ResultDto> CheckLicences(List<LicenceRelProject> Licences);
         Task<ResultDto> CheckFacilitis(List<FacilitiRelProject> Facilitis);
@@ -46,7 +48,26 @@ namespace Application.CommonServices.Query
                 IsSuccess = true
             };
         }
+        public async Task<ResultDto> CheckRentType(int Id,PlaceOfImplementation PlaceOfImplementation)
+        {
+            if (PlaceOfImplementation == PlaceOfImplementation.Rent)
+            {
+                var rentType = _dbContext.RentTypes.Find(Id);
+                if (rentType == null)
+                {
+                    return new ResultDto
+                    {
+                        Message = "نوع اجاره ای با آیدی ارسالی موجود نیست"
+                    };
+                }
+            }
+            
 
+            return new ResultDto
+            {
+                IsSuccess = true
+            };
+        }
         public async Task<ResultDto> CheckAddress(Address Address)
         {
             var City = _dbContext.Cities.Find(Address.CityId);

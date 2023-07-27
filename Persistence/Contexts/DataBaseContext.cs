@@ -101,7 +101,7 @@ namespace Persistence.Contexts
     .HasOne(p => p.RentType)
     .WithMany()
     .HasForeignKey(p => p.RentTypeId)
-    .IsRequired(true)
+    .IsRequired(false)
     .OnDelete(DeleteBehavior.NoAction);
 
             SetConfigurations(builder);

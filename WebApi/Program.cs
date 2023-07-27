@@ -13,6 +13,7 @@ using Application.Project_IncompletedService.Query;
 using Application.Project_Service.Command;
 using Application.Project_Service.Query;
 using Application.ProjectTypeService.Query;
+using Application.RentTypeService.Query;
 using Application.TokenService;
 using Application.UserService;
 using Domain.Users;
@@ -206,6 +207,9 @@ builder.Services.AddScoped<IGetFacilitiStatusService, GetFacilitiStatusService>(
 
 //Industry Services
 builder.Services.AddScoped<IGetIndustriesService, GetIndustriesService>();
+
+//RentType Services
+builder.Services.AddScoped<IGetRentTypeService, GetRentTypeService>();
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();

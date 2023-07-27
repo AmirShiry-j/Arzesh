@@ -151,6 +151,12 @@
             <param name="CreateProjectDto"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.RentTypeController.Get">
+            <summary>
+            برگردوندن انواع اجاره ها برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.UnitedController.Get">
             <summary>
             برگردوندن لیست استان ها برای کمبوباکس
