@@ -16,7 +16,7 @@ namespace Domain.Projects
         public string Name { get; set; }
 
         //ایده شما در چه صنعت و بخشی است؟
-        public int? IndustryId { get; set; }
+        public int IndustryId { get; set; }
         public Industry Industry { get; set; }
 
         //نرخ بازگشت سرمایه طرح
