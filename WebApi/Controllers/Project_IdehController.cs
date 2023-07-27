@@ -31,7 +31,7 @@ namespace WebApi.Controllers
 
 
         /// <summary>
-        /// ثبت یک پروژه (ایده)
+        /// ثبت یک پروژه (ایده) (Auth)
         /// </summary>
         /// <param name="CreateProjectDto"></param>
         /// <returns></returns>

@@ -119,7 +119,7 @@ namespace WebApi.Controllers
         }
 
         /// <summary>
-        /// حذف یک پروژه
+        /// حذف یک پروژه (Auth)
         /// </summary>
         /// <param name="ProjectId"></param>
         /// <returns></returns>

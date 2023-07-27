@@ -126,7 +126,7 @@
         </member>
         <member name="M:WebApi.Controllers.ProjectController.Delete(System.Int32)">
             <summary>
-            حذف یک پروژه
+            حذف یک پروژه (Auth)
             </summary>
             <param name="ProjectId"></param>
             <returns></returns>
@@ -139,14 +139,14 @@
         </member>
         <member name="M:WebApi.Controllers.Project_IdehController.Post(WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto)">
             <summary>
-            ثبت یک پروژه (ایده)
+            ثبت یک پروژه (ایده) (Auth)
             </summary>
             <param name="CreateProjectDto"></param>
             <returns></returns>
         </member>
         <member name="M:WebApi.Controllers.Project_IncompletedController.Post(WebApi.ModelsAndDtoes.Project_Incompleted.CreateProject_IncompletedApiDto)">
             <summary>
-            ثبت یک پروژه (نیمه تمام)
+            ثبت یک پروژه (نیمه تمام) (Auth)
             </summary>
             <param name="CreateProjectDto"></param>
             <returns></returns>

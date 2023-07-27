@@ -32,7 +32,7 @@ namespace WebApi.Controllers
 
 
         /// <summary>
-        /// ثبت یک پروژه (نیمه تمام)
+        /// ثبت یک پروژه (نیمه تمام) (Auth)
         /// </summary>
         /// <param name="CreateProjectDto"></param>
         /// <returns></returns>
