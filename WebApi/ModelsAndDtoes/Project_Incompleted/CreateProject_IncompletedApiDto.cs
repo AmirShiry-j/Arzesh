@@ -18,7 +18,7 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
         public int PercentParticipation { get; set; }
         //مشارکت
         //آیا در حوزه فعالیت طرح سابقه و یا تجربه دارید؟ 
-        public int AmountOfExperience { get; set; }
+        public string AmountOfExperience { get; set; }
         //کلیه مجوزهایی که تا کنون اخذ نموده اید
         public bool HaveAllLicences { get; set; }
         //محل اجرای طرح
@@ -46,8 +46,14 @@ namespace WebApi.ModelsAndDtoes.Project_Incompleted
         public int ReturnInvestmentRate { get; set; }
         //خالص ارزش فعلی پروژه
         public int NetPresentValue { get; set; }
+        //درصد پیشرفت کلی طرح تا کنون
+        [Range(0, 100)]
+        public int OverallProgressPercent { get; set; }
+
+
         //آیا تاکنون در خصوص طرح مذکور تسهیلات دریافت نموده‌اید؟
         public bool HaveReceivedFaciliti { get; set; }
+
         [Required]
         public CreateAddressApiDto Address { get; set; }
 

@@ -2,7 +2,7 @@
 {
     public class CreateLicenceRelProjectApiDto
     {
-        public DateTime ValidityDate { get; set; }
+        public string ValidityDate { get; set; }
         //Licence
         public int LicenceId { get; set; }
     }

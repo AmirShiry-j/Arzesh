@@ -20,9 +20,9 @@ namespace Domain.ProjectNeeds
         public FacilitiNature FacilitiNature { get; set; }
         public int FacilitiNatureId { get; set; }
         //تاریخ اخذ تسهیلات
-        public DateTime ReceivingDate { get; set; }
+        public string ReceivingDate { get; set; }
         //تاریخ شروع اقساط
-        public DateTime InstallmentStartDate { get; set; }
+        public string InstallmentStartDate { get; set; }
         //مدت بازپرداخت
         public int RepaymentPeriod { get; set; }
         //محل تامین - بانک
