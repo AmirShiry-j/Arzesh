@@ -113,6 +113,7 @@ namespace Application.Project_Service.Query
 
             //For Pagination
             int CountAllItems = _dbContext.Projects.Where(prProject).Count();
+            int CountAllPages = (CountAllItems / SearchDto.CountInPage.Value) + ((CountAllItems % SearchDto.CountInPage) != 0 ? 1 : 0);
 
             return new ResultDto<ResultSearchProjectDto>
             {
@@ -122,6 +123,7 @@ namespace Application.Project_Service.Query
                     Page = SearchDto.Page.Value,
                     CountInPage = SearchDto.CountInPage.Value,
                     CountAllItems = CountAllItems,
+                    CountAllPages= CountAllPages,
                     Projects = projects
                 }
             };
@@ -147,6 +149,7 @@ namespace Application.Project_Service.Query
         public int Page { get; set; }
         public int CountInPage { get; set; }
         public int CountAllItems { get; set; }
+        public int CountAllPages { get; set; }
         public List<ProjectMainInfoDto> Projects { get; set; }
     }
     public class ProjectMainInfoDto
