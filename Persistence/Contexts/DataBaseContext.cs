@@ -47,7 +47,8 @@ namespace Persistence.Contexts
         public DbSet<City> Cities { get; set; }
         //Industry
         public DbSet<Industry> Industries { get; set; }
-
+        //RentType
+        public DbSet<RentType> RentTypes { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             ////Relations
@@ -95,7 +96,13 @@ namespace Persistence.Contexts
                 .HasOne(p => p.City)
                 .WithMany();
 
-
+            //For Project_InCompleted
+            builder.Entity<Project_Incompleted>()
+    .HasOne(p => p.RentType)
+    .WithMany()
+    .HasForeignKey(p => p.RentTypeId)
+    .IsRequired(true)
+    .OnDelete(DeleteBehavior.NoAction);
 
             SetConfigurations(builder);
 

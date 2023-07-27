@@ -28,7 +28,7 @@ namespace Domain.Projects
         public PlaceOfImplementation PlaceOfImplementation { get; set; }
         //اجاره
         public int RentTypeId { get; set; }
-
+        public RentType RentType { get; set; }
 
         //آیا طرح توجیهی برای ایده تدوین شده است؟
         public bool JustificationPlan { get; set; }

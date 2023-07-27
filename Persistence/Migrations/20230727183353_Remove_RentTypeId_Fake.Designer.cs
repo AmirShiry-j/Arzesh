@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Contexts;
 
@@ -11,9 +12,11 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230727183353_Remove_RentTypeId_Fake")]
+    partial class Remove_RentTypeId_Fake
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -281,23 +284,6 @@ namespace Persistence.Migrations
                     b.ToTable("LicenceRelProjects");
                 });
 
-            modelBuilder.Entity("Domain.ProjectNeeds.RentType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RentTypes");
-                });
-
             modelBuilder.Entity("Domain.ProjectNeeds.United", b =>
                 {
                     b.Property<int>("Id")
@@ -460,9 +446,6 @@ namespace Persistence.Migrations
                     b.Property<int>("ProposedPrice")
                         .HasColumnType("int");
 
-                    b.Property<int>("RentTypeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("RequiredCapitalPlan")
                         .HasColumnType("int");
 
@@ -474,8 +457,6 @@ namespace Persistence.Migrations
 
                     b.HasIndex("ProjectId")
                         .IsUnique();
-
-                    b.HasIndex("RentTypeId");
 
                     b.ToTable("P_Incompleteds");
                 });
@@ -885,15 +866,7 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.ProjectNeeds.RentType", "RentType")
-                        .WithMany()
-                        .HasForeignKey("RentTypeId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.Navigation("Project");
-
-                    b.Navigation("RentType");
                 });
 
             modelBuilder.Entity("Domain.Users.Token", b =>
