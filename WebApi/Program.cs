@@ -10,6 +10,7 @@ using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
+using Application.Project_ReadyToUseService.Command;
 using Application.Project_Service.Command;
 using Application.Project_Service.Query;
 using Application.ProjectTypeService.Query;
@@ -191,6 +192,10 @@ builder.Services.AddScoped<IGetProject_IdehById, GetProject_IdehById>();
 //Project_Incompleted services
 builder.Services.AddScoped<IAddProject_IncompletedService, AddProject_IncompletedService>();
 builder.Services.AddScoped<IGetProject_IncompletedById, GetProject_IncompletedById>();
+
+//Project_ReadyToUse services
+builder.Services.AddScoped<IAddProject_ReadyToUseService, AddProject_ReadyToUseService>();
+
 
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();

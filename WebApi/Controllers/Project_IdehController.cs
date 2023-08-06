@@ -50,7 +50,7 @@ namespace WebApi.Controllers
             if (resultService.IsSuccess)
             {
                 //HATEOAS links
-                string url = "";
+                string url = Url.Action("Get", "Project", new { ProjectId = resultService.Data }, Request.Scheme);
 
                 return Created(url, "پروژه (ایده) شما ثبت گردید");
             }

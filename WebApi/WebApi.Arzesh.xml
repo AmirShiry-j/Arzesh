@@ -151,6 +151,13 @@
             <param name="CreateProjectDto"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.Project_ReadyToUseController.Post(WebApi.ModelsAndDtoes.Project__ReadyToUse.CreateProject_ReadyToUseApiDto)">
+            <summary>
+            ثبت یک پروژه (آماده بهره برداری) (Auth)
+            </summary>
+            <param name="CreateProjectDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.RentTypeController.Get">
             <summary>
             برگردوندن انواع اجاره ها برای کمبوباکس

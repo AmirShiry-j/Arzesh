@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Application.Common.CreateDtoes;
 using Application.Common.SearchDtoes;
+using Application.Project_ReadyToUseService.Command;
 
 namespace Infrastructure.MappingProfile
 {
@@ -98,6 +99,15 @@ namespace Infrastructure.MappingProfile
 .ReverseMap();
             #endregion
             //
+
+            //Add Project_ReadyToUse
+            #region Add Project_ReadyToUseDto
+            CreateMap<Project, CreateProject_ReadyToUseDto>()
+.ReverseMap();
+
+            CreateMap<Project_ReadyToUse, CreateProject_ReadyToUseDto>()
+.ReverseMap();
+            #endregion
         }
     }
 }
