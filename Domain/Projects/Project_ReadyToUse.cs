@@ -1,17 +1,15 @@
 ﻿using Domain.ProjectEnums;
 using Domain.ProjectNeeds;
-using Domain.Users;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Domain.Projects
 {
-    public class Project_Incompleted
+    public class Project_ReadyToUse
     {
         public int Id { get; set; }
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
@@ -29,11 +27,10 @@ namespace Domain.Projects
         //اجاره
         public int? RentTypeId { get; set; }
         public RentType RentType { get; set; }
-
         //آیا طرح توجیهی برای ایده تدوین شده است؟
         public bool JustificationPlan { get; set; }
 
-        
+
 
 
         //واگذاری
@@ -46,7 +43,6 @@ namespace Domain.Projects
         //مشارکت
         //در چه سرفصل‌هایی نیاز به مشارکت دارید؟
         public string WhatTopicsNeedParticipate { get; set; }
-
         //خالص ارزش فعلی پروژه
         public int NetPresentValue { get; set; }
 
@@ -58,6 +54,10 @@ namespace Domain.Projects
 
         //آیا تاکنون در خصوص طرح مذکور تسهیلات دریافت نموده‌اید؟
         public bool HaveReceivedFaciliti { get; set; }
+
+        //مشارکت
+        //تاریخ عملیاتی شروع فعالیت
+        public string DateStartOfOperationalActivities { get; set; }
 
         ////nave
         public Project Project { get; set; }

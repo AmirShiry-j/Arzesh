@@ -21,6 +21,7 @@ namespace Application.Interfaces.Contexts
         DbSet<Project> Projects { get; set; }
         DbSet<Project_Ideh> P_Idehs { get; set; }
         DbSet<Project_Incompleted> P_Incompleteds { get; set; }
+        DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
 
         //Faciliti
         DbSet<FacilitiStatus> FacilitiStatuses { get; set; }

@@ -36,6 +36,7 @@ namespace Domain.Projects
 
         public Project_Ideh P_Ideh { get; set; }
         public Project_Incompleted P_Incompleted { get; set; }
+        public Project_ReadyToUse P_ReadyToUse { get; set; }
         //
         //مجوز ها
         public ICollection<LicenceRelProject> Licences { get; set; }

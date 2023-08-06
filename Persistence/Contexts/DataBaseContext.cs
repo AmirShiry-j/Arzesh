@@ -30,6 +30,7 @@ namespace Persistence.Contexts
         public DbSet<Project> Projects { get; set; }
         public DbSet<Project_Ideh> P_Idehs { get; set; }
         public DbSet<Project_Incompleted> P_Incompleteds { get; set; }
+        public DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
 
         //Faciliti
         public DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
@@ -98,6 +99,14 @@ namespace Persistence.Contexts
 
             //For Project_InCompleted
             builder.Entity<Project_Incompleted>()
+    .HasOne(p => p.RentType)
+    .WithMany()
+    .HasForeignKey(p => p.RentTypeId)
+    .IsRequired(false)
+    .OnDelete(DeleteBehavior.NoAction);
+
+            //For Project_ReadyToUse
+            builder.Entity<Project_ReadyToUse>()
     .HasOne(p => p.RentType)
     .WithMany()
     .HasForeignKey(p => p.RentTypeId)
