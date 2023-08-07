@@ -45,6 +45,9 @@ namespace Persistence.Contexts
         //Asset
         public DbSet<Asset> Assets { get; set; }
         public DbSet<AssetRelProject> AssetRelProjects { get; set; }
+        //Capacity
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<CapacityRelProject> CapacityRelProjects { get; set; }
         //Address
         public DbSet<Address> Addresses { get; set; }
         public DbSet<United> Uniteds { get; set; }
@@ -91,6 +94,12 @@ namespace Persistence.Contexts
             builder.Entity<AssetRelProject>()
 .HasOne(p => p.Project)
 .WithMany(p => p.Assets)
+.HasForeignKey(p => p.ProjectId)
+.IsRequired(true);
+
+            builder.Entity<CapacityRelProject>()
+.HasOne(p => p.Project)
+.WithMany(p => p.Capacites)
 .HasForeignKey(p => p.ProjectId)
 .IsRequired(true);
 
