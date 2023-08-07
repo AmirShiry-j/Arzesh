@@ -22,7 +22,7 @@ namespace Application.Interfaces.Contexts
         DbSet<Project_Ideh> P_Idehs { get; set; }
         DbSet<Project_Incompleted> P_Incompleteds { get; set; }
         DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
-
+        DbSet<Project_UnderCapacity> P_UnderCapacity { get; set; }
         //Faciliti
         DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
         DbSet<FacilitiNature> FacilitiNatures { get; set; }

@@ -31,6 +31,7 @@ namespace Persistence.Contexts
         public DbSet<Project_Ideh> P_Idehs { get; set; }
         public DbSet<Project_Incompleted> P_Incompleteds { get; set; }
         public DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
+        public DbSet<Project_UnderCapacity> P_UnderCapacity { get; set; }
 
         //Faciliti
         public DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
@@ -130,6 +131,15 @@ namespace Persistence.Contexts
     .HasForeignKey(p => p.RentTypeId)
     .IsRequired(false)
     .OnDelete(DeleteBehavior.NoAction);
+
+            //For Project_UnderCapacity
+            builder.Entity<Project_UnderCapacity>()
+    .HasOne(p => p.RentType)
+    .WithMany()
+    .HasForeignKey(p => p.RentTypeId)
+    .IsRequired(false)
+    .OnDelete(DeleteBehavior.NoAction);
+
 
             SetConfigurations(builder);
 
