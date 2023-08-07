@@ -17,7 +17,7 @@ namespace Application.Interfaces.Contexts
         DbSet<Role> Roles { get; set; }
         DbSet<Token> Tokens { get; set; }
         //Projects
-        public DbSet<ProjectType> ProjectTypes { get; set; }
+        DbSet<ProjectType> ProjectTypes { get; set; }
         DbSet<Project> Projects { get; set; }
         DbSet<Project_Ideh> P_Idehs { get; set; }
         DbSet<Project_Incompleted> P_Incompleteds { get; set; }
@@ -33,6 +33,9 @@ namespace Application.Interfaces.Contexts
         //Fund
         DbSet<Fund> Funds { get; set; }
         DbSet<FundRelProject> FundRelProjects { get; set; }
+        //Asset
+        DbSet<Asset> Assets { get; set; }
+        DbSet<AssetRelProject> AssetRelProjects { get; set; }
         //Address
         DbSet<Address> Addresses { get; set; }
         DbSet<United> Uniteds { get; set; }

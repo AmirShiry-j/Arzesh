@@ -17,15 +17,12 @@ namespace WebApi.Controllers
     public class Project_IdehController : ControllerBase
     {
         private readonly IAddProject_IdehService _addProject_IdehService;
-        private readonly IGetProject_IdehById _getProject_IdehById;
         private readonly IMapper _mapper;
 
         public Project_IdehController(IAddProject_IdehService addProject_IdehService,
-            IGetProject_IdehById getProject_IdehById,
             IMapper mapper)
         {
             _addProject_IdehService = addProject_IdehService;
-            _getProject_IdehById = getProject_IdehById;
             _mapper = mapper;
         }
 
