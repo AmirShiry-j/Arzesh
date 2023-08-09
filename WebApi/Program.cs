@@ -1,4 +1,5 @@
 ﻿using Application.AddressesService.Query;
+using Application.AssetService.Query;
 using Application.CommonServices.Query;
 using Application.FacilitiNatureService.Query;
 using Application.FacilitiStatusService.Query;
@@ -218,6 +219,9 @@ builder.Services.AddScoped<IGetIndustriesService, GetIndustriesService>();
 
 //RentType Services
 builder.Services.AddScoped<IGetRentTypeService, GetRentTypeService>();
+
+//Asset Services
+builder.Services.AddScoped<IGetAssetsService, GetAssetsService>();
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();

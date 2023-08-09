@@ -67,6 +67,12 @@
             <param name="user"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.AssetController.Get">
+            <summary>
+            برگردوندن لیست دارایی ها برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.CityController.Get(System.Int32)">
             <summary>
             برگردوندن لیست شهر های هر استان برای کمبوباکس
