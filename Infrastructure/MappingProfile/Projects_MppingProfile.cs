@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Application.Common.CreateDtoes;
 using Application.Common.SearchDtoes;
 using Application.Project_ReadyToUseService.Command;
+using Application.Project_UnderCapacityService.Command;
 
 namespace Infrastructure.MappingProfile
 {
@@ -39,6 +40,12 @@ namespace Infrastructure.MappingProfile
 .ReverseMap();
 
             CreateMap<FacilitiRelProject, CreateFacilitiRelProjectDto>()
+.ReverseMap();
+
+            CreateMap<AssetRelProject, CreateAssetRelProjectDto>()
+.ReverseMap();
+
+            CreateMap<CapacityRelProject, CreateCapacityRelProjectDto>()
 .ReverseMap();
             #endregion
             //
@@ -107,7 +114,20 @@ namespace Infrastructure.MappingProfile
 
             CreateMap<Project_ReadyToUse, CreateProject_ReadyToUseDto>()
 .ReverseMap();
+
             #endregion
+
+            //Add Project_UnderCapacity
+            #region Add Project_UnderCapacityDto
+            CreateMap<Project, CreateProject_UnderCapacityDto>()
+.ReverseMap();
+
+            CreateMap<Project_UnderCapacity, CreateProject_UnderCapacityDto>()
+.ReverseMap();
+
+            #endregion
+
+
         }
     }
 }

@@ -100,7 +100,7 @@ namespace Persistence.Contexts
 
             builder.Entity<CapacityRelProject>()
 .HasOne(p => p.Project)
-.WithMany(p => p.Capacites)
+.WithMany(p => p.Capacities)
 .HasForeignKey(p => p.ProjectId)
 .IsRequired(true);
 

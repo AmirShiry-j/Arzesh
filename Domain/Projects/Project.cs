@@ -47,8 +47,8 @@ namespace Domain.Projects
         public ICollection<FundRelProject> Funds { get; set; }
         //دارایی ها
         public ICollection<AssetRelProject> Assets { get; set; }
-        //ظرفیت طرح
-        public ICollection<CapacityRelProject> Capacites { get; set; }
+        //ظرفیت ها
+        public ICollection<CapacityRelProject> Capacities { get; set; }
 
         public DateTime TimeCreate { get; set; }
     }

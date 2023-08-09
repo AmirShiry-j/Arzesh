@@ -158,6 +158,13 @@
             <param name="CreateProjectDto"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.Project_UnderCapacityController.Post(WebApi.ModelsAndDtoes.Project_UnderCapacity.CreateProject_UnderCapacityApiDto)">
+            <summary>
+            ثبت یک پروژه (زیر ظرفیت) (Auth)
+            </summary>
+            <param name="CreateProjectDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.RentTypeController.Get">
             <summary>
             برگردوندن انواع اجاره ها برای کمبوباکس
@@ -169,6 +176,39 @@
             برگردوندن لیست استان ها برای کمبوباکس
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto.Name">
+            <summary>
+            /Commons For Always
+            </summary>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto.AssignmentOrParticipation">
+            <summary>
+            End Commons
+            </summary>
+            
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Incompleted.CreateProject_IncompletedApiDto.Name">
+            <summary>
+            /Commons For Always
+            </summary>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Incompleted.CreateProject_IncompletedApiDto.AssignmentOrParticipation">
+            <summary>
+            End Commons
+            </summary>
+            
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_UnderCapacity.CreateProject_UnderCapacityApiDto.Name">
+            <summary>
+            /Commons For Always
+            </summary>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_UnderCapacity.CreateProject_UnderCapacityApiDto.AssignmentOrParticipation">
+            <summary>
+            End Commons
+            </summary>
+            
         </member>
     </members>
 </doc>

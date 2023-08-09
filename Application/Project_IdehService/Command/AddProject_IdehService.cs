@@ -66,20 +66,33 @@ namespace Application.Project_IdehService.Command
     }
     public class CreateProject_IdehDto
     {
+        /// <summary>
+        /// /Commons For Always
+        /// </summary>
+        //نام پروژه
         public string Name { get; set; }
+        //ایده شما در چه صنعت و بخشی است؟
+        public int IndustryId { get; set; }
+        //نرخ بازگشت سرمایه طرح
+        public int ReturnInvestmentRate { get; set; }
+        //میزان سرمایه مورد تقاضا
+        public int AmountCapitalDemand { get; set; }
+        //آدرس
+        public CreateAddressDto Address { get; set; }
+        /// <summary>
+        /// End Commons
+        /// </summary>
+        /// 
+
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         public int PercentParticipation { get; set; }
         public bool HaveSimilarDomesticCase { get; set; }
         public bool IsRegistered { get; set; }
         public bool HasLicense { get; set; }
         public bool JustificationPlan { get; set; }
-        public int IndustryId { get; set; }
         public int RequiredCapitalPlan { get; set; }
-        public int AmountCapitalDemand { get; set; }
         public string WhatTopicsNeedParticipate { get; set; }
-        public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
-        public CreateAddressDto Address { get; set; }
 
     }
 }

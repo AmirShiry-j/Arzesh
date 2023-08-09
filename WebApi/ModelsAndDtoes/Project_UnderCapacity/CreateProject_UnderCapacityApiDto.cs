@@ -1,17 +1,31 @@
-﻿using Domain.ProjectEnums;
-using Domain.ProjectNeeds;
-using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Common.CreateDtoes;
+using Domain.ProjectEnums;
+using System.ComponentModel.DataAnnotations;
+using WebApi.ModelsAndDtoes.Common.CreateDtoes;
 
-namespace Domain.Projects
+namespace WebApi.ModelsAndDtoes.Project_UnderCapacity
 {
-    public class Project_UnderCapacity
+    public class CreateProject_UnderCapacityApiDto
     {
-        public int Id { get; set; }
+        /// <summary>
+        /// /Commons For Always
+        /// </summary>
+        //نام پروژه
+        public string Name { get; set; }
+        //ایده شما در چه صنعت و بخشی است؟
+        public int IndustryId { get; set; }
+        //نرخ بازگشت سرمایه طرح
+        public int ReturnInvestmentRate { get; set; }
+        //میزان سرمایه مورد تقاضا
+        public int AmountCapitalDemand { get; set; }
+        //آدرس
+        [Required]
+        public CreateAddressApiDto Address { get; set; }
+        /// <summary>
+        /// End Commons
+        /// </summary>
+        /// 
+
         //قصد واگذاری ایده را دارید یا به دنبال مشارکت هستید؟
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         //مشارکت
@@ -25,43 +39,41 @@ namespace Domain.Projects
         //محل اجرای طرح
         public PlaceOfImplementation PlaceOfImplementation { get; set; }
         //اجاره
-        public int? RentTypeId { get; set; }
-        public RentType RentType { get; set; }
-
+        public int RentTypeId { get; set; }
         //آیا طرح توجیهی برای ایده تدوین شده است؟
         public bool JustificationPlan { get; set; }
         //آیا صورت مالی دارید؟
         public bool HaveFinancialStatement { get; set; }
-
-
         //واگذاری
         //قیمت پیشنهادی
-        public long ProposedPrice { get; set; }
+        public int ProposedPrice { get; set; }
         //مشارکت
         //میزان مشارکت مورد نیاز
         public int AmountOfParticipationRequired { get; set; }
-
+        //مشارکت
+        //کل سرمایه مورد نیاز طرح
+        public int RequiredCapitalPlan { get; set; }
         //مشارکت
         //در چه سرفصل‌هایی نیاز به مشارکت دارید؟
         public string WhatTopicsNeedParticipate { get; set; }
-
-
-
         //آیا پروژه شما در حال حاضر سودده می‌باشد
         public bool IsCurrentlyProfitable { get; set; }
         //بله
         //میزان سود سال گذشته
-        public int LastYearProfit{get;set;}
+        public int LastYearProfit { get; set; }
         //خیر
         //میزان زیان سال گذشته
         public int LastYearLoss { get; set; }
-
         //آیا تاکنون در خصوص طرح مذکور تسهیلات دریافت نموده‌اید؟
         public bool HaveReceivedFaciliti { get; set; }
 
-
-        ////nave
-        public Project Project { get; set; }
-        public int ProjectId { get; set; }
+        //دارایی ها
+        public List<CreateAssetRelProjectDto> Assets { get; set; }
+        //مجوز ها
+        public List<CreateLicenceRelProjectApiDto> Licences { get; set; }
+        //ظرفیت ها
+        public List<CreateCapacityRelProjectDto> Capacities { get; set; }
+        //تسهیلات
+        public List<CreateFacilitiRelProjectApiDto> Facilitis { get; set; }
     }
 }

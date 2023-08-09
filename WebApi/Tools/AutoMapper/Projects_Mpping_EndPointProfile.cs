@@ -5,6 +5,7 @@ using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
 using Application.Project_ReadyToUseService.Command;
 using Application.Project_Service.Query;
+using Application.Project_UnderCapacityService.Command;
 using AutoMapper;
 using Domain.Projects;
 using WebApi.ModelsAndDtoes.Common.CreateDtoes;
@@ -12,6 +13,7 @@ using WebApi.ModelsAndDtoes.Project;
 using WebApi.ModelsAndDtoes.Project__ReadyToUse;
 using WebApi.ModelsAndDtoes.Project_Ideh;
 using WebApi.ModelsAndDtoes.Project_Incompleted;
+using WebApi.ModelsAndDtoes.Project_UnderCapacity;
 
 namespace WebApi.Tools.AutoMapper
 {
@@ -31,6 +33,12 @@ namespace WebApi.Tools.AutoMapper
 .ReverseMap();
 
             CreateMap<CreateFundRelProjectDto, CreateFundRelProjectApiDto>()
+.ReverseMap();
+
+            CreateMap<CreateAssetRelProjectDto, CreateAssetRelProjectApiDto>()
+.ReverseMap();
+
+            CreateMap<CreateCapacityRelProjectDto, CreateCapacityRelProjectApiDto>()
 .ReverseMap();
             #endregion
             //
@@ -52,6 +60,13 @@ namespace WebApi.Tools.AutoMapper
             //Add Project_ReadyToUse
             #region Add Project_ReadyToUse
             CreateMap<CreateProject_ReadyToUseDto, CreateProject_ReadyToUseApiDto>()
+    .ReverseMap();
+            #endregion
+            //
+
+            //Add Project_UnderCapacity
+            #region Add Project_UnderCapacity
+            CreateMap<CreateProject_UnderCapacityDto, CreateProject_UnderCapacityApiDto>()
     .ReverseMap();
             #endregion
             //

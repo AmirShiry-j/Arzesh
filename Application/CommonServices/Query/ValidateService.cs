@@ -21,6 +21,8 @@ namespace Application.CommonServices.Query
         Task<ResultDto> CheckLicences(List<LicenceRelProject> Licences);
         Task<ResultDto> CheckFacilitis(List<FacilitiRelProject> Facilitis);
         Task<ResultDto> CheckFunds(List<FundRelProject> Funds);
+        Task<ResultDto> CheckAssets(List<AssetRelProject> Assets);
+        Task<ResultDto> CheckCapacities(List<CapacityRelProject> Capacities);
     }
     public class ValidateService : IValidateService
     {
@@ -207,6 +209,57 @@ namespace Application.CommonServices.Query
                 return new ResultDto
                 {
                     Message = $"سر فصل های سرمایه گذاری با آیدی های {str} موجود نیست"
+                };
+            }
+
+            return new ResultDto
+            {
+                IsSuccess = true
+            };
+        }
+        public async Task<ResultDto> CheckAssets(List<AssetRelProject> Assets)
+        {
+            if (Assets == null || Assets.Count == 0)
+            {
+                return new ResultDto
+                {
+                    Message = "ثبت حداقل یک مورد دارایی اجباری است"
+                };
+            }
+
+            bool isExistAssetBaIdNaMojood = false;
+            List<string> IdsNaMojood = new List<string>();
+            foreach (var asset in Assets)
+            {
+                var fundInDb = _dbContext.Assets.Find(asset.AssetId);
+                if (fundInDb == null)
+                {
+                    isExistAssetBaIdNaMojood = true;
+                    IdsNaMojood.Add(asset.AssetId.ToString());
+                }
+            }
+
+            if (isExistAssetBaIdNaMojood)
+            {
+                var str = IdsNaMojood.Aggregate((s1, s2) => s1 + " , " + s2).ToString();
+                return new ResultDto
+                {
+                    Message = $"سر فصل های دارایی ها با آیدی های {str} موجود نیست"
+                };
+            }
+
+            return new ResultDto
+            {
+                IsSuccess = true
+            };
+        }
+        public async Task<ResultDto> CheckCapacities(List<CapacityRelProject> Capacities)
+        {
+            if (Capacities == null || Capacities.Count == 0)
+            {
+                return new ResultDto
+                {
+                    Message = "ثبت حداقل یک مورد ظرفیت اجباری است"
                 };
             }
 

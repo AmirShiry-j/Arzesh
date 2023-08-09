@@ -13,6 +13,7 @@ using Application.Project_IncompletedService.Query;
 using Application.Project_ReadyToUseService.Command;
 using Application.Project_Service.Command;
 using Application.Project_Service.Query;
+using Application.Project_UnderCapacityService.Command;
 using Application.ProjectTypeService.Query;
 using Application.RentTypeService.Query;
 using Application.TokenService;
@@ -196,6 +197,8 @@ builder.Services.AddScoped<IGetProject_IncompletedById, GetProject_IncompletedBy
 //Project_ReadyToUse services
 builder.Services.AddScoped<IAddProject_ReadyToUseService, AddProject_ReadyToUseService>();
 
+//Project_UnderCapacity services
+builder.Services.AddScoped<IAddProject_UnderCapacityService, AddProject_UnderCapacityService>();
 
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();

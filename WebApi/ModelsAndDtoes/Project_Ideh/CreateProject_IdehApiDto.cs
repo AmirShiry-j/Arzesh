@@ -8,8 +8,25 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
 {
     public class CreateProject_IdehApiDto
     {
+        /// <summary>
+        /// /Commons For Always
+        /// </summary>
         //نام پروژه
         public string Name { get; set; }
+        //ایده شما در چه صنعت و بخشی است؟
+        public int IndustryId { get; set; }
+        //نرخ بازگشت سرمایه طرح
+        public int ReturnInvestmentRate { get; set; }
+        //میزان سرمایه مورد تقاضا
+        public int AmountCapitalDemand { get; set; }
+        //آدرس
+        [Required]
+        public CreateAddressApiDto Address { get; set; }
+        /// <summary>
+        /// End Commons
+        /// </summary>
+        /// 
+
         [Range(1, 2)]
         public AssignmentOrParticipation AssignmentOrParticipation { get; set; }
         [Range(0,100)]
@@ -18,14 +35,10 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
         public bool IsRegistered { get; set; }
         public bool HasLicense { get; set; }
         public bool JustificationPlan { get; set; }
-        public int IndustryId { get; set; }
         public int RequiredCapitalPlan { get; set; }
-        public int AmountCapitalDemand { get; set; }
         public string WhatTopicsNeedParticipate { get; set; }
-        public int ReturnInvestmentRate { get; set; }
         public int NetPresentValue { get; set; }
-        [Required]
-        public CreateAddressApiDto Address { get; set; }
+
 
     }
 
