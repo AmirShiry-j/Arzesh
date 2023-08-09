@@ -3,7 +3,7 @@
     public class CreateCapacityRelProjectDto
     {
         //نوع محصول
-        public int ProductTypeId { get; set; }
+        public string ProductTypeName { get; set; }
         //ظرفیت اسمی
         public int NominalCapacity { get; set; }
         //ظرفیت واقعی عملیاتی

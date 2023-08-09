@@ -37,7 +37,6 @@ namespace Application.Interfaces.Contexts
         DbSet<Asset> Assets { get; set; }
         DbSet<AssetRelProject> AssetRelProjects { get; set; }
         //Capacity
-        DbSet<ProductType> ProductTypes { get; set; }
         DbSet<CapacityRelProject> CapacityRelProjects { get; set; }
         //Address
         DbSet<Address> Addresses { get; set; }

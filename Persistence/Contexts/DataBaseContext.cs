@@ -47,7 +47,6 @@ namespace Persistence.Contexts
         public DbSet<Asset> Assets { get; set; }
         public DbSet<AssetRelProject> AssetRelProjects { get; set; }
         //Capacity
-        public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<CapacityRelProject> CapacityRelProjects { get; set; }
         //Address
         public DbSet<Address> Addresses { get; set; }

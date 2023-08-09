@@ -11,8 +11,7 @@ namespace Domain.ProjectNeeds
     {
         public int Id { get; set; }
         //نوع محصول
-        public ProductType ProductType { get; set; }
-        public int ProductTypeId { get; set; }
+        public string ProductTypeName { get; set; }
         //ظرفیت اسمی
         public int NominalCapacity { get; set; }
         //ظرفیت واقعی عملیاتی
