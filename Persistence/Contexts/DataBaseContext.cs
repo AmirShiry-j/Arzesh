@@ -32,7 +32,7 @@ namespace Persistence.Contexts
         public DbSet<Project_Incompleted> P_Incompleteds { get; set; }
         public DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
         public DbSet<Project_UnderCapacity> P_UnderCapacity { get; set; }
-        public DbSet<Project_Stopped> project_Stoppeds { get; set; }
+        public DbSet<Project_Stopped> P_Stoppeds { get; set; }
         //Faciliti
         public DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
         public DbSet<FacilitiNature> FacilitiNatures { get; set; }
