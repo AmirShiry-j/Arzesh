@@ -8,7 +8,6 @@ namespace Application.Common.CreateDtoes
 {
     public class CreateAddressDto
     {
-        public int UnitedId { get; set; }
         //شهرستان
         public int CityId { get; set; }
         //شهر

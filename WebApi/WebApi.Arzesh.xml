@@ -80,6 +80,12 @@
             <param name="UnitedId"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.DebtController.Get">
+            <summary>
+            برگردوندن سرفصل بدهی ها برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.FacilitiNatureController.Get">
             <summary>
             برگردوندن لیست ماهیت های تسهیلات برای کمبوباکس
@@ -95,6 +101,12 @@
         <member name="M:WebApi.Controllers.FundController.Get">
             <summary>
             برگردوندن لیست سرمایه گذاری ها برای کمبوباکس
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.InactivityReasonController.Get">
+            <summary>
+            برگردوندن لیست دلایل توقف برای کمبوباکس
             </summary>
             <returns></returns>
         </member>
@@ -164,6 +176,13 @@
             <param name="CreateProjectDto"></param>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.Project_StoppedController.Post(WebApi.ModelsAndDtoes.Project_Stopped.CreateProject_StoppedApiDto)">
+            <summary>
+            ثبت یک پروژه (متوقف شده / غیر فعال) (Auth)
+            </summary>
+            <param name="CreateProjectDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.Project_UnderCapacityController.Post(WebApi.ModelsAndDtoes.Project_UnderCapacity.CreateProject_UnderCapacityApiDto)">
             <summary>
             ثبت یک پروژه (زیر ظرفیت) (Auth)
@@ -200,6 +219,17 @@
             </summary>
         </member>
         <member name="P:WebApi.ModelsAndDtoes.Project_Incompleted.CreateProject_IncompletedApiDto.AssignmentOrParticipation">
+            <summary>
+            End Commons
+            </summary>
+            
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Stopped.CreateProject_StoppedApiDto.Name">
+            <summary>
+            /Commons For Always
+            </summary>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Stopped.CreateProject_StoppedApiDto.AssignmentOrParticipation">
             <summary>
             End Commons
             </summary>

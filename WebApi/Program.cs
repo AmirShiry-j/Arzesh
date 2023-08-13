@@ -1,9 +1,11 @@
 ﻿using Application.AddressesService.Query;
 using Application.AssetService.Query;
 using Application.CommonServices.Query;
+using Application.DebtService.Query;
 using Application.FacilitiNatureService.Query;
 using Application.FacilitiStatusService.Query;
 using Application.FundService.Query;
+using Application.InactivityReasonService.Query;
 using Application.IndustryService.Query;
 using Application.Interfaces.Contexts;
 using Application.LicenceService.Query;
@@ -14,6 +16,7 @@ using Application.Project_IncompletedService.Query;
 using Application.Project_ReadyToUseService.Command;
 using Application.Project_Service.Command;
 using Application.Project_Service.Query;
+using Application.Project_StoppedService.Command;
 using Application.Project_UnderCapacityService.Command;
 using Application.ProjectTypeService.Query;
 using Application.RentTypeService.Query;
@@ -201,6 +204,10 @@ builder.Services.AddScoped<IAddProject_ReadyToUseService, AddProject_ReadyToUseS
 //Project_UnderCapacity services
 builder.Services.AddScoped<IAddProject_UnderCapacityService, AddProject_UnderCapacityService>();
 
+//Project_Stopped services
+builder.Services.AddScoped<IAddProject_StoppedService, AddProject_StoppedService>();
+
+
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();
 
@@ -222,6 +229,13 @@ builder.Services.AddScoped<IGetRentTypeService, GetRentTypeService>();
 
 //Asset Services
 builder.Services.AddScoped<IGetAssetsService, GetAssetsService>();
+
+//Debt Services
+builder.Services.AddScoped<IGetDebtsService, GetDebtsService>();
+
+//InactivityReason Services
+builder.Services.AddScoped<IGetInactivityReasonsService, GetInactivityReasonsService>();
+
 
 //Authorize and token services
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();

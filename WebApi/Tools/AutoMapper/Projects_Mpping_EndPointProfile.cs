@@ -5,6 +5,7 @@ using Application.Project_IncompletedService.Command;
 using Application.Project_IncompletedService.Query;
 using Application.Project_ReadyToUseService.Command;
 using Application.Project_Service.Query;
+using Application.Project_StoppedService.Command;
 using Application.Project_UnderCapacityService.Command;
 using AutoMapper;
 using Domain.Projects;
@@ -13,6 +14,7 @@ using WebApi.ModelsAndDtoes.Project;
 using WebApi.ModelsAndDtoes.Project__ReadyToUse;
 using WebApi.ModelsAndDtoes.Project_Ideh;
 using WebApi.ModelsAndDtoes.Project_Incompleted;
+using WebApi.ModelsAndDtoes.Project_Stopped;
 using WebApi.ModelsAndDtoes.Project_UnderCapacity;
 
 namespace WebApi.Tools.AutoMapper
@@ -39,6 +41,9 @@ namespace WebApi.Tools.AutoMapper
 .ReverseMap();
 
             CreateMap<CreateCapacityRelProjectDto, CreateCapacityRelProjectApiDto>()
+.ReverseMap();
+
+            CreateMap<CreateDebtRelProjectDto, CreateDebtRelProjectApiDto>()
 .ReverseMap();
             #endregion
             //
@@ -67,6 +72,13 @@ namespace WebApi.Tools.AutoMapper
             //Add Project_UnderCapacity
             #region Add Project_UnderCapacity
             CreateMap<CreateProject_UnderCapacityDto, CreateProject_UnderCapacityApiDto>()
+    .ReverseMap();
+            #endregion
+            //
+
+            //Add Project_Stopped
+            #region Add Project_Stopped
+            CreateMap<CreateProject_StoppedDto, CreateProject_StoppedApiDto>()
     .ReverseMap();
             #endregion
             //
