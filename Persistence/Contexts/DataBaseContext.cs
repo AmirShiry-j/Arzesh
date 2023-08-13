@@ -46,6 +46,9 @@ namespace Persistence.Contexts
         //Asset
         public DbSet<Asset> Assets { get; set; }
         public DbSet<AssetRelProject> AssetRelProjects { get; set; }
+        //Debts
+        public DbSet<Debt> Debts { get; set; }
+        public DbSet<DebtRelProject> DebtRelProjects { get; set; }
         //Capacity
         public DbSet<CapacityRelProject> CapacityRelProjects { get; set; }
         //Address
@@ -56,6 +59,7 @@ namespace Persistence.Contexts
         public DbSet<Industry> Industries { get; set; }
         //RentType
         public DbSet<RentType> RentTypes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             ////Relations
@@ -100,6 +104,12 @@ namespace Persistence.Contexts
             builder.Entity<CapacityRelProject>()
 .HasOne(p => p.Project)
 .WithMany(p => p.Capacities)
+.HasForeignKey(p => p.ProjectId)
+.IsRequired(true);
+
+            builder.Entity<DebtRelProject>()
+.HasOne(p => p.Project)
+.WithMany(p => p.Debts)
 .HasForeignKey(p => p.ProjectId)
 .IsRequired(true);
 

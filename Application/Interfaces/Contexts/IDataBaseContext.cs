@@ -38,6 +38,9 @@ namespace Application.Interfaces.Contexts
         DbSet<AssetRelProject> AssetRelProjects { get; set; }
         //Capacity
         DbSet<CapacityRelProject> CapacityRelProjects { get; set; }
+        //Debts
+        DbSet<Debt> Debts { get; set; }
+        DbSet<DebtRelProject> DebtRelProjects { get; set; }
         //Address
         DbSet<Address> Addresses { get; set; }
         DbSet<United> Uniteds { get; set; }
