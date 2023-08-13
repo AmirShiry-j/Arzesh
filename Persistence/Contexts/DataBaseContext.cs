@@ -32,7 +32,7 @@ namespace Persistence.Contexts
         public DbSet<Project_Incompleted> P_Incompleteds { get; set; }
         public DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
         public DbSet<Project_UnderCapacity> P_UnderCapacity { get; set; }
-
+        public DbSet<Project_Stopped> project_Stoppeds { get; set; }
         //Faciliti
         public DbSet<FacilitiStatus> FacilitiStatuses { get; set; }
         public DbSet<FacilitiNature> FacilitiNatures { get; set; }
@@ -59,6 +59,8 @@ namespace Persistence.Contexts
         public DbSet<Industry> Industries { get; set; }
         //RentType
         public DbSet<RentType> RentTypes { get; set; }
+        //InactivityReason
+        public DbSet<InactivityReason> InactivityReasons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -149,7 +151,21 @@ namespace Persistence.Contexts
     .IsRequired(false)
     .OnDelete(DeleteBehavior.NoAction);
 
+            //For Project_Stopped
+            builder.Entity<Project_Stopped>()
+    .HasOne(p => p.RentType)
+    .WithMany()
+    .HasForeignKey(p => p.RentTypeId)
+    .IsRequired(false)
+    .OnDelete(DeleteBehavior.NoAction);
 
+            //For Project_Stopped
+            builder.Entity<Project_Stopped>()
+    .HasOne(p => p.InactivityReason)
+    .WithMany()
+    .HasForeignKey(p => p.InactivityReasonId)
+    .IsRequired(true)
+    .OnDelete(DeleteBehavior.NoAction);
             SetConfigurations(builder);
 
             base.OnModelCreating(builder);
