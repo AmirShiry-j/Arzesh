@@ -16,6 +16,7 @@ using Application.Common.CreateDtoes;
 using Application.Common.SearchDtoes;
 using Application.Project_ReadyToUseService.Command;
 using Application.Project_UnderCapacityService.Command;
+using Application.Project_StoppedService.Command;
 
 namespace Infrastructure.MappingProfile
 {
@@ -46,6 +47,9 @@ namespace Infrastructure.MappingProfile
 .ReverseMap();
 
             CreateMap<CapacityRelProject, CreateCapacityRelProjectDto>()
+.ReverseMap();
+
+            CreateMap<DebtRelProject, CreateDebtRelProjectDto>()
 .ReverseMap();
             #endregion
             //
@@ -127,6 +131,15 @@ namespace Infrastructure.MappingProfile
 
             #endregion
 
+            //Add Project_Stopped
+            #region Add Project_StoppedDto
+            CreateMap<Project, CreateProject_StoppedDto>()
+.ReverseMap();
+
+            CreateMap<Project_Stopped, CreateProject_StoppedDto>()
+.ReverseMap();
+
+            #endregion
 
         }
     }

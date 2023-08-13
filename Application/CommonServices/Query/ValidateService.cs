@@ -23,6 +23,7 @@ namespace Application.CommonServices.Query
         Task<ResultDto> CheckFunds(List<FundRelProject> Funds);
         Task<ResultDto> CheckAssets(List<AssetRelProject> Assets);
         Task<ResultDto> CheckCapacities(List<CapacityRelProject> Capacities);
+        Task<ResultDto> CheckDebts(List<DebtRelProject> Debts);
     }
     public class ValidateService : IValidateService
     {
@@ -253,6 +254,44 @@ namespace Application.CommonServices.Query
                 IsSuccess = true
             };
         }
+
+        public async Task<ResultDto> CheckDebts(List<DebtRelProject> Debts)
+        {
+            if (Debts == null || Debts.Count == 0)
+            {
+                return new ResultDto
+                {
+                    Message = "ثبت حداقل یک مورد بدهی اجباری است"
+                };
+            }
+
+            bool isExistDebtBaIdNaMojood = false;
+            List<string> IdsNaMojood = new List<string>();
+            foreach (var debt in Debts)
+            {
+                var fundInDb = _dbContext.Debts.Find(debt.DebtId);
+                if (fundInDb == null)
+                {
+                    isExistDebtBaIdNaMojood = true;
+                    IdsNaMojood.Add(debt.DebtId.ToString());
+                }
+            }
+
+            if (isExistDebtBaIdNaMojood)
+            {
+                var str = IdsNaMojood.Aggregate((s1, s2) => s1 + " , " + s2).ToString();
+                return new ResultDto
+                {
+                    Message = $"سر فصل های بدهی ها با آیدی های {str} موجود نیست"
+                };
+            }
+
+            return new ResultDto
+            {
+                IsSuccess = true
+            };
+        }
+
         public async Task<ResultDto> CheckCapacities(List<CapacityRelProject> Capacities)
         {
             if (Capacities == null || Capacities.Count == 0)
