@@ -9,6 +9,8 @@ using Application.InactivityReasonService.Query;
 using Application.IndustryService.Query;
 using Application.Interfaces.Contexts;
 using Application.LicenceService.Query;
+using Application.ProfileService.Command;
+using Application.ProfileService.Query;
 using Application.Project_DevelopmentService.Command;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
@@ -181,9 +183,16 @@ builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 //AuthoMapper Profile
 builder.Services.AddAutoMapper(typeof(Projects_MppingProfile));
 builder.Services.AddAutoMapper(typeof(Projects_Mpping_EndPointProfile));
+builder.Services.AddAutoMapper(typeof(UserMappingProfile));
+builder.Services.AddAutoMapper(typeof(User_Mapping_EndPointProfile));
 
 //Common Services
 builder.Services.AddScoped<IValidateService, ValidateService>();
+
+//Profile services
+builder.Services.AddScoped<IGetProfileService, GetProfileService>();
+builder.Services.AddScoped<IEditProfileService, EditProfileService>();
+
 
 //Project services
 builder.Services.AddScoped<IDeleteProjectService, DeleteProjectService>();

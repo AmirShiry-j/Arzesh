@@ -122,6 +122,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.ProfileController.Get">
+            <summary>
+            بر گردوندن اطلاعات پروفایل (Auth)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProfileController.Put(WebApi.ModelsAndDtoes.Profile.EditProfileApiDto)">
+            <summary>
+            ویرایش اطلاعات پروفایل (Auth)
+            </summary>
+            <param name="editPofileDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.ProjectController.Get(WebApi.ModelsAndDtoes.Project.SearchProjectApiDto)">
             <summary>
             بر گردوندن پروژه ها
