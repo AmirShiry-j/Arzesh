@@ -155,6 +155,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebApi.Controllers.Project_DevelopmentController.Post(WebApi.ModelsAndDtoes.Project_Development.CreateProject_DevelopmentApiDto)">
+            <summary>
+            ثبت یک پروژه (توسعه) (Auth)
+            </summary>
+            <param name="CreateProjectDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebApi.Controllers.Project_IdehController.Post(WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto)">
             <summary>
             ثبت یک پروژه (ایده) (Auth)
@@ -202,6 +209,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Development.CreateProject_DevelopmentApiDto.Name">
+            <summary>
+            /Commons For Always
+            </summary>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project_Development.CreateProject_DevelopmentApiDto.AssignmentOrParticipation">
+            <summary>
+            End Commons
+            </summary>
+            
+        </member>
         <member name="P:WebApi.ModelsAndDtoes.Project_Ideh.CreateProject_IdehApiDto.Name">
             <summary>
             /Commons For Always
@@ -241,6 +259,17 @@
             </summary>
         </member>
         <member name="P:WebApi.ModelsAndDtoes.Project_UnderCapacity.CreateProject_UnderCapacityApiDto.AssignmentOrParticipation">
+            <summary>
+            End Commons
+            </summary>
+            
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project__ReadyToUse.CreateProject_ReadyToUseApiDto.Name">
+            <summary>
+            /Commons For Always
+            </summary>
+        </member>
+        <member name="P:WebApi.ModelsAndDtoes.Project__ReadyToUse.CreateProject_ReadyToUseApiDto.AssignmentOrParticipation">
             <summary>
             End Commons
             </summary>

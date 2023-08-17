@@ -9,6 +9,7 @@ using Application.InactivityReasonService.Query;
 using Application.IndustryService.Query;
 using Application.Interfaces.Contexts;
 using Application.LicenceService.Query;
+using Application.Project_DevelopmentService.Command;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
@@ -207,6 +208,8 @@ builder.Services.AddScoped<IAddProject_UnderCapacityService, AddProject_UnderCap
 //Project_Stopped services
 builder.Services.AddScoped<IAddProject_StoppedService, AddProject_StoppedService>();
 
+//Project_Development services
+builder.Services.AddScoped<IAddProject_DevelopmentService, AddProject_DevelopmentService>();
 
 //Fund Services
 builder.Services.AddScoped<IGetFundsService, GetFundsService>();

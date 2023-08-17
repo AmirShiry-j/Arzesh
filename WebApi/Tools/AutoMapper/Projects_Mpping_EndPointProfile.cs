@@ -1,4 +1,5 @@
 ﻿using Application.Common.CreateDtoes;
+using Application.Project_DevelopmentService.Command;
 using Application.Project_IdehService.Command;
 using Application.Project_IdehService.Query;
 using Application.Project_IncompletedService.Command;
@@ -12,6 +13,7 @@ using Domain.Projects;
 using WebApi.ModelsAndDtoes.Common.CreateDtoes;
 using WebApi.ModelsAndDtoes.Project;
 using WebApi.ModelsAndDtoes.Project__ReadyToUse;
+using WebApi.ModelsAndDtoes.Project_Development;
 using WebApi.ModelsAndDtoes.Project_Ideh;
 using WebApi.ModelsAndDtoes.Project_Incompleted;
 using WebApi.ModelsAndDtoes.Project_Stopped;
@@ -79,6 +81,13 @@ namespace WebApi.Tools.AutoMapper
             //Add Project_Stopped
             #region Add Project_Stopped
             CreateMap<CreateProject_StoppedDto, CreateProject_StoppedApiDto>()
+    .ReverseMap();
+            #endregion
+            //
+
+            //Add Project_Development
+            #region Add Project_Development
+            CreateMap<CreateProject_DevelopmentDto, CreateProject_DevelopmentApiDto>()
     .ReverseMap();
             #endregion
             //
