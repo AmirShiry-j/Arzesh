@@ -114,7 +114,7 @@ builder.Services.AddSwaggerGen(c =>
     //برای نمایش استرینگی Enum ها
     //c.DescribeAllEnumsAsStrings();
 
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Barber Shop", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Arzesh", Version = "v1" });
 
     //برای نمایش Description کنترلر ها
     c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "WebApi.Arzesh.xml"), true);
