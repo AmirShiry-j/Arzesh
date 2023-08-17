@@ -38,7 +38,8 @@ namespace Domain.Projects
         public Project_Incompleted P_Incompleted { get; set; }
         public Project_ReadyToUse P_ReadyToUse { get; set; }
         public Project_UnderCapacity P_UnderCapacity { get; set; }
-        public Project_Stopped Project_Stopped { get; set; }
+        public Project_Stopped P_Stopped { get; set; }
+        public Project_Development P_Development { get; set; }
         //
         //مجوز ها
         public ICollection<LicenceRelProject> Licences { get; set; }

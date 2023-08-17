@@ -24,6 +24,7 @@ namespace Application.Interfaces.Contexts
         DbSet<Project_ReadyToUse> P_ReadyToUses { get; set; }
         DbSet<Project_UnderCapacity> P_UnderCapacity { get; set; }
         DbSet<Project_Stopped> P_Stoppeds { get; set; }
+        DbSet<Project_Development> P_Developments { get; set; }
 
 
         //Faciliti

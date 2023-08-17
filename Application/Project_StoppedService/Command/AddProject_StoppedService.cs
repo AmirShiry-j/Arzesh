@@ -39,7 +39,7 @@ namespace Application.Project_StoppedService.Command
             newProject.ProjectTypeId = (int)ProjectTypeEnum.Stopped;
             newProject.UserId = UserId;
             //
-            newProject.Project_Stopped = _mapper.Map<Project_Stopped>(ProjectDto);
+            newProject.P_Stopped = _mapper.Map<Project_Stopped>(ProjectDto);
 
             //Industry
             var resultCheckIndustry = await _validateService.CheckIndustry((int)newProject.IndustryId);
@@ -47,12 +47,12 @@ namespace Application.Project_StoppedService.Command
                 return _mapper.Map<ResultDto<int>>(resultCheckIndustry);
 
             //RentType
-            var resultCheckRentType = await _validateService.CheckRentType((int)newProject.Project_Stopped.RentTypeId, newProject.Project_Stopped.PlaceOfImplementation);
+            var resultCheckRentType = await _validateService.CheckRentType((int)newProject.P_Stopped.RentTypeId, newProject.P_Stopped.PlaceOfImplementation);
             if (!resultCheckRentType.IsSuccess)
                 return _mapper.Map<ResultDto<int>>(resultCheckRentType);
             else
-                if (newProject.Project_Stopped.PlaceOfImplementation != PlaceOfImplementation.Rent)
-                newProject.Project_Stopped.RentTypeId = null;
+                if (newProject.P_Stopped.PlaceOfImplementation != PlaceOfImplementation.Rent)
+                newProject.P_Stopped.RentTypeId = null;
 
             ////Asset
             var resultCheckAssets = await _validateService.CheckAssets(newProject.Assets.ToList());
