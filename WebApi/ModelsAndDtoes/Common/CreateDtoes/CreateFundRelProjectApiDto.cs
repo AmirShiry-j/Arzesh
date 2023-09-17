@@ -9,8 +9,8 @@ namespace WebApi.ModelsAndDtoes.Common.CreateDtoes
         [Range(0, 100)]
         public int PercenPhysicalProgress { get; set; }
         //مبلغ هزینه شده
-        public int AmountSpent { get; set; }
+        public long AmountSpent { get; set; }
         //بر آورد کل مبلغ مورد نیاز
-        public int TotalAmountNeeded { get; set; }
+        public long TotalAmountNeeded { get; set; }
     }
 }
