@@ -10,8 +10,8 @@
         public int? IndustryId { get; set; }
         public int? ReturnInvestmentRateFrom { get; set; }
         public int? ReturnInvestmentRateTo { get; set; }
-        public int? AmountCapitalDemandFrom { get; set; }
-        public int? AmountCapitalDemandTo { get; set; }
+        public long? AmountCapitalDemandFrom { get; set; }
+        public long? AmountCapitalDemandTo { get; set; }
         public int? UnitedId { get; set; }
         public int? CityId { get; set; }
     }

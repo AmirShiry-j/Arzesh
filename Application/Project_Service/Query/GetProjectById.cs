@@ -81,7 +81,7 @@ namespace Application.Project_Service.Query
         public string IndustryName { get; set; }
         public int IndustryId { get; set; }
         public int ReturnInvestmentRate { get; set; }
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         public int ProjectTypeId { get; set; }
         public string ProjectTypeName { get; set; }
         public int UnitedId { get; set; }

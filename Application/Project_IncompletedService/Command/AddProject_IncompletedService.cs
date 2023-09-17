@@ -112,19 +112,19 @@ namespace Application.Project_IncompletedService.Command
         public bool JustificationPlan { get; set; }
         //واگذاری
         //قیمت پیشنهادی
-        public int ProposedPrice { get; set; }
+        public long ProposedPrice { get; set; }
         //مشارکت
         //کل سرمایه مورد نیاز طرح
-        public int RequiredCapitalPlan { get; set; }
+        public long RequiredCapitalPlan { get; set; }
         //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         //مشارکت
         //در چه سرفصل‌هایی نیاز به مشارکت دارید؟
         public string WhatTopicsNeedParticipate { get; set; }
         //نرخ بازگشت سرمایه طرح
         public int ReturnInvestmentRate { get; set; }
         //خالص ارزش فعلی پروژه
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
         //درصد پیشرفت کلی طرح تا کنون
         public int OverallProgressPercent { get; set; }
 

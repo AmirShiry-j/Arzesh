@@ -22,7 +22,7 @@ namespace Domain.Projects
         //نرخ بازگشت سرمایه طرح
         public int ReturnInvestmentRate { get; set; }
         //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
 
         //Naves
         //کاربر

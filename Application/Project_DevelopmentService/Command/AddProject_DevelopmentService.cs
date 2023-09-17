@@ -103,7 +103,7 @@ namespace Application.Project_DevelopmentService.Command
         //نرخ بازگشت سرمایه طرح
         public int ReturnInvestmentRate { get; set; }
         //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         //آدرس
         public CreateAddressDto Address { get; set; }
         /// <summary>

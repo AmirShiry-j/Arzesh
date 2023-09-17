@@ -27,13 +27,13 @@ namespace Domain.Projects
         public bool JustificationPlan { get; set; }
 
         //کل سرمایه مورد نیاز طرح
-        public int RequiredCapitalPlan { get; set; }
+        public long RequiredCapitalPlan { get; set; }
 
         //در چه سرفصل‌هایی نیاز به مشارکت دارید؟
         public string WhatTopicsNeedParticipate { get; set; }
 
         //خالص ارزش فعلی پروژه
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
 
 
         //naves

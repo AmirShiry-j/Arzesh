@@ -76,7 +76,7 @@ namespace Application.Project_IdehService.Command
         //نرخ بازگشت سرمایه طرح
         public int ReturnInvestmentRate { get; set; }
         //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         //آدرس
         public CreateAddressDto Address { get; set; }
         /// <summary>
@@ -90,9 +90,9 @@ namespace Application.Project_IdehService.Command
         public bool IsRegistered { get; set; }
         public bool HasLicense { get; set; }
         public bool JustificationPlan { get; set; }
-        public int RequiredCapitalPlan { get; set; }
+        public long RequiredCapitalPlan { get; set; }
         public string WhatTopicsNeedParticipate { get; set; }
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
 
     }
 }

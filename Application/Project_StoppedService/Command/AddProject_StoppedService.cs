@@ -103,7 +103,7 @@ namespace Application.Project_StoppedService.Command
         //نرخ بازگشت سرمایه طرح
         public int ReturnInvestmentRate { get; set; }
         //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         //آدرس
         public CreateAddressDto Address { get; set; }
         /// <summary>
@@ -141,7 +141,7 @@ namespace Application.Project_StoppedService.Command
         //ارزش کل سرمایه گذاری جدید
         public long TotalValueNewInvestment { get; set; }
         //خالص ارزش فعلی پروژه
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
         //دلایل غیر فعال بودن طرح
         public int InactivityReasonId { get; set; }
         //توضیح 

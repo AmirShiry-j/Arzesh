@@ -18,7 +18,7 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
         //نرخ بازگشت سرمایه طرح
         public int ReturnInvestmentRate { get; set; }
         //میزان سرمایه مورد تقاضا
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         //آدرس
         [Required]
         public CreateAddressApiDto Address { get; set; }
@@ -35,9 +35,9 @@ namespace WebApi.ModelsAndDtoes.Project_Ideh
         public bool IsRegistered { get; set; }
         public bool HasLicense { get; set; }
         public bool JustificationPlan { get; set; }
-        public int RequiredCapitalPlan { get; set; }
+        public long RequiredCapitalPlan { get; set; }
         public string WhatTopicsNeedParticipate { get; set; }
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
 
 
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Contexts;
 
@@ -11,9 +12,11 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230917201541_Change_DataType_int_to_long_for_AmountCapitalDemand_fild_and_RequiredCapitalPlan_fild_in_All_Project_and_Database")]
+    partial class Change_DataType_int_to_long_for_AmountCapitalDemand_fild_and_RequiredCapitalPlan_fild_in_All_Project_and_Database
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -612,8 +615,8 @@ namespace Persistence.Migrations
                     b.Property<bool>("JustificationPlan")
                         .HasColumnType("bit");
 
-                    b.Property<long>("NetPresentValue")
-                        .HasColumnType("bigint");
+                    b.Property<int>("NetPresentValue")
+                        .HasColumnType("int");
 
                     b.Property<int>("PercentParticipation")
                         .HasColumnType("int");
@@ -660,8 +663,8 @@ namespace Persistence.Migrations
                     b.Property<bool>("JustificationPlan")
                         .HasColumnType("bit");
 
-                    b.Property<long>("NetPresentValue")
-                        .HasColumnType("bigint");
+                    b.Property<int>("NetPresentValue")
+                        .HasColumnType("int");
 
                     b.Property<int>("OverallProgressPercent")
                         .HasColumnType("int");
@@ -675,8 +678,8 @@ namespace Persistence.Migrations
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
-                    b.Property<long>("ProposedPrice")
-                        .HasColumnType("bigint");
+                    b.Property<int>("ProposedPrice")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RentTypeId")
                         .HasColumnType("int");
@@ -726,8 +729,8 @@ namespace Persistence.Migrations
                     b.Property<bool>("JustificationPlan")
                         .HasColumnType("bit");
 
-                    b.Property<long>("NetPresentValue")
-                        .HasColumnType("bigint");
+                    b.Property<int>("NetPresentValue")
+                        .HasColumnType("int");
 
                     b.Property<int>("OverallProgressPercent")
                         .HasColumnType("int");
@@ -741,8 +744,8 @@ namespace Persistence.Migrations
                     b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
-                    b.Property<long>("ProposedPrice")
-                        .HasColumnType("bigint");
+                    b.Property<int>("ProposedPrice")
+                        .HasColumnType("int");
 
                     b.Property<int?>("RentTypeId")
                         .HasColumnType("int");
@@ -801,8 +804,8 @@ namespace Persistence.Migrations
                     b.Property<bool>("JustificationPlan")
                         .HasColumnType("bit");
 
-                    b.Property<long>("NetPresentValue")
-                        .HasColumnType("bigint");
+                    b.Property<int>("NetPresentValue")
+                        .HasColumnType("int");
 
                     b.Property<int>("PercentParticipation")
                         .HasColumnType("int");

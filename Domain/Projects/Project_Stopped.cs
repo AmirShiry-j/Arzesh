@@ -45,7 +45,7 @@ namespace Domain.Projects
         //ارزش کل سرمایه گذاری جدید
         public long TotalValueNewInvestment { get; set; }
         //خالص ارزش فعلی پروژه
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
         //دلایل غیر فعال بودن طرح
         public InactivityReason InactivityReason { get; set; }
         public int InactivityReasonId { get; set; }

@@ -94,12 +94,12 @@ namespace Application.Project_IncompletedService.Query
         public int IndustryId { get; set; }
         public string IndustryName { get; set; }
         public bool JustificationPlan { get; set; }
-        public int ProposedPrice { get; set; }
-        public int RequiredCapitalPlan { get; set; }
-        public int AmountCapitalDemand { get; set; }
+        public long ProposedPrice { get; set; }
+        public long RequiredCapitalPlan { get; set; }
+        public long AmountCapitalDemand { get; set; }
         public string WhatTopicsNeedParticipate { get; set; }
         public int ReturnInvestmentRate { get; set; }
-        public int NetPresentValue { get; set; }
+        public long NetPresentValue { get; set; }
         public bool HaveReceivedFaciliti { get; set; }
         public AddressDetailDto Address { get; set; }
         public DateTime TimeCreate { get; set; }

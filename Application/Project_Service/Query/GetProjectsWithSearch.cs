@@ -139,8 +139,8 @@ namespace Application.Project_Service.Query
         public int? IndustryId { get; set; }
         public int? ReturnInvestmentRateFrom { get; set; }
         public int? ReturnInvestmentRateTo { get; set; }
-        public int? AmountCapitalDemandFrom { get; set; }
-        public int? AmountCapitalDemandTo { get; set; }
+        public long? AmountCapitalDemandFrom { get; set; }
+        public long? AmountCapitalDemandTo { get; set; }
         public int? UnitedId { get; set; }
         public int? CityId { get; set; }
     }
@@ -159,7 +159,7 @@ namespace Application.Project_Service.Query
         public string IndustryName { get; set; }
         public int IndustryId { get; set; }
         public int ReturnInvestmentRate { get; set; }
-        public int AmountCapitalDemand { get; set; }
+        public long AmountCapitalDemand { get; set; }
         public int ProjectTypeId { get; set; }
         public string ProjectTypeName { get; set; }
         public int UnitedId { get; set; }
