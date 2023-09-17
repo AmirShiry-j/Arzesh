@@ -134,7 +134,7 @@ namespace Application.Project_StoppedService.Command
         public long ProposedPrice { get; set; }
         //مشارکت
         //میزان مشارکت مورد نیاز
-        public int AmountOfParticipationRequired { get; set; }
+        public long AmountOfParticipationRequired { get; set; }
         //مشارکت
         //مدت زمان غیرفعال بودن طرح (سال)
         public int DurationInactivityYear { get; set; }

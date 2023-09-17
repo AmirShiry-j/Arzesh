@@ -143,7 +143,7 @@ namespace Application.Project_DevelopmentService.Command
         public long ProposedPrice { get; set; }
         //مشارکت
         //میزان مشارکت مورد نیاز
-        public int AmountOfParticipationRequired { get; set; }
+        public long AmountOfParticipationRequired { get; set; }
         //خالص ارزش فعلی پروژه
         public long NetPresentValue { get; set; }
 

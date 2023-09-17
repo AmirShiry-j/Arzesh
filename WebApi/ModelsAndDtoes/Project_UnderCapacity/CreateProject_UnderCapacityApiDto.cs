@@ -49,7 +49,7 @@ namespace WebApi.ModelsAndDtoes.Project_UnderCapacity
         public long ProposedPrice { get; set; }
         //مشارکت
         //میزان مشارکت مورد نیاز
-        public int AmountOfParticipationRequired { get; set; }
+        public long AmountOfParticipationRequired { get; set; }
         //مشارکت
         //کل سرمایه مورد نیاز طرح
         public long RequiredCapitalPlan { get; set; }
