@@ -51,10 +51,10 @@ namespace Domain.Projects
         public bool IsCurrentlyProfitable { get; set; }
         //بله
         //میزان سود سال گذشته
-        public int LastYearProfit{get;set;}
+        public long LastYearProfit {get;set;}
         //خیر
         //میزان زیان سال گذشته
-        public int LastYearLoss { get; set; }
+        public long LastYearLoss { get; set; }
 
         //آیا تاکنون در خصوص طرح مذکور تسهیلات دریافت نموده‌اید؟
         public bool HaveReceivedFaciliti { get; set; }
