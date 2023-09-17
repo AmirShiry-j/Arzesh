@@ -5,9 +5,9 @@
         //نوع محصول
         public string ProductTypeName { get; set; }
         //ظرفیت اسمی
-        public int NominalCapacity { get; set; }
+        public long NominalCapacity { get; set; }
         //ظرفیت واقعی عملیاتی
-        public int ActualOperatingCapacity { get; set; }
+        public long ActualOperatingCapacity { get; set; }
         //شیفت کاری
         public string ShiftWork { get; set; }
         //ظرفیت مورد نظر عملیاتی
