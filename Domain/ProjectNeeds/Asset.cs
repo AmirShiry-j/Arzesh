@@ -16,7 +16,7 @@ namespace Domain.ProjectNeeds
         //میزان
         public int Level { get; set; }
         //ارزش
-        public int Value { get; set; }
+        public long Value { get; set; }
         //
         public int ProjectId { get; set; }
         public Project Project { get; set; }
