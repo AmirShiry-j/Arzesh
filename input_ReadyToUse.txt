@@ -1,0 +1,54 @@
+{
+  "name": "string",
+  "assignmentOrParticipation": 1,
+  "percentParticipation": 100,
+  "amountOfExperience": "string",
+  "haveAllLicences": true,
+  "placeOfImplementation": 2,
+  "rentTypeId": 0,
+  "industryId": 5,
+  "justificationPlan": true,
+  "proposedPrice": 0,
+  "requiredCapitalPlan": 0,
+  "amountCapitalDemand": 0,
+  "whatTopicsNeedParticipate": "string",
+  "returnInvestmentRate": 0,
+  "netPresentValue": 0,
+  "overallProgressPercent": 100,
+  "haveReceivedFaciliti": true,
+  "dateStartOfOperationalActivities": "string",
+  "address": {
+    "cityId": 1160,
+    "townName": "string",
+    "part_Village": "string",
+    "street": "string",
+    "postalCode": "string"
+  },
+  "licences": [
+    {
+      "validityDate": "string",
+      "licenceId": 5
+    }
+  ],
+  "facilitis": [
+    {
+      "facilitiType": 1,
+      "facilitiStatusId": 2,
+      "facilitiNatureId": 2,
+      "receivingDate": "string",
+      "installmentStartDate": "string",
+      "repaymentPeriod": 0,
+      "placeSupply_Bank": "string",
+      "interestRate": 100,
+      "collateralName": "string"
+    }
+  ],
+  "funds": [
+    {
+      "fundId": 10,
+      "percenPhysicalProgress": 100,
+      "amountSpent": 0,
+      "totalAmountNeeded": 0
+    }
+  ]
+}

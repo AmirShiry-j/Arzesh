@@ -1,0 +1,22 @@
+{
+  "name": "string",
+  "assignmentOrParticipation": 1,
+  "percentParticipation": 100,
+  "haveSimilarDomesticCase": true,
+  "isRegistered": true,
+  "hasLicense": true,
+  "justificationPlan": true,
+  "industryId": 5,
+  "requiredCapitalPlan": 0,
+  "amountCapitalDemand": 0,
+  "whatTopicsNeedParticipate": "string",
+  "returnInvestmentRate": 0,
+  "netPresentValue": 0,
+  "address": {
+    "cityId": 1149,
+    "townName": "string",
+    "part_Village": "string",
+    "street": "string",
+    "postalCode": "string"
+  }
+}

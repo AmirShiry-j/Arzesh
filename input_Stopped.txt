@@ -1,0 +1,60 @@
+{
+  "name": "string",
+  "industryId": 5,
+  "returnInvestmentRate": 0,
+  "amountCapitalDemand": 0,
+  "address": {
+    "cityId": 1150,
+    "townName": "string",
+    "part_Village": "string",
+    "street": "string",
+    "postalCode": "string"
+  },
+  "assignmentOrParticipation": 1,
+  "percentParticipation": 0,
+  "amountOfExperience": "string",
+  "haveAllLicences": true,
+  "placeOfImplementation": 1,
+  "rentTypeId": 1,
+  "justificationPlan": true,
+  "proposedPrice": 0,
+  "amountOfParticipationRequired": 0,
+  "durationInactivityYear": 0,
+  "totalValueNewInvestment": 0,
+  "netPresentValue": 0,
+  "inactivityReasonId": 3,
+  "explanationReason": "string",
+  "haveReceivedFaciliti": true,
+  "assets": [
+    {
+      "assetId": 2,
+      "level": 0,
+      "value": 0
+    }
+  ],
+  "licences": [
+    {
+      "validityDate": "string",
+      "licenceId": 10
+    }
+  ],
+  "facilitis": [
+    {
+      "facilitiType": 1,
+      "facilitiStatusId": 2,
+      "facilitiNatureId": 2,
+      "receivingDate": "string",
+      "installmentStartDate": "string",
+      "repaymentPeriod": 0,
+      "placeSupply_Bank": "string",
+      "interestRate": 100,
+      "collateralName": "string"
+    }
+  ],
+  "debts": [
+    {
+      "debtId": 2,
+      "amount": 199990
+    }
+  ]
+}

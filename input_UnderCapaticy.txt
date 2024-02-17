@@ -1,0 +1,65 @@
+{
+  "name": "string",
+  "industryId": 7,
+  "returnInvestmentRate": 0,
+  "amountCapitalDemand": 0,
+  "address": {
+    "cityId": 1200,
+    "townName": "string",
+    "part_Village": "string",
+    "street": "string",
+    "postalCode": "string"
+  },
+  "assignmentOrParticipation": 1,
+  "percentParticipation": 0,
+  "amountOfExperience": "string",
+  "haveAllLicences": true,
+  "placeOfImplementation": 1,
+  "rentTypeId": 2,
+  "justificationPlan": true,
+  "haveFinancialStatement": true,
+  "proposedPrice": 110,
+  "amountOfParticipationRequired": 30,
+  "requiredCapitalPlan": 20,
+  "whatTopicsNeedParticipate": "string",
+  "isCurrentlyProfitable": true,
+  "lastYearProfit": 2330,
+  "lastYearLoss": 120,
+  "haveReceivedFaciliti": true,
+  "assets": [
+    {
+      "assetId": 2,
+      "level": 45,
+      "value": 7800000
+    }
+  ],
+  "licences": [
+    {
+      "validityDate": "string",
+      "licenceId": 10
+    }
+  ],
+  "capacities": [
+    {
+      "productTypeName": "ترشیجات",
+      "nominalCapacity": 11000,
+      "actualOperatingCapacity": 400,
+      "shiftWork": "string",
+      "desiredOperationalCapacity": "string",
+      "lastYearSale": 9000
+    }
+  ],
+  "facilitis": [
+    {
+      "facilitiType": 1,
+      "facilitiStatusId": 2,
+      "facilitiNatureId": 2,
+      "receivingDate": "string",
+      "installmentStartDate": "string",
+      "repaymentPeriod": 1500,
+      "placeSupply_Bank": "string",
+      "interestRate": 100,
+      "collateralName": "string"
+    }
+  ]
+}
